@@ -1,21 +1,28 @@
+@use "./variables" as *;
 .insurance-renewal-page {
   display: flex;
-  max-width: 1200px;
   width: 100%;
-  background-color: #fdfcf9;
+  background-color: $color-greyish;
   border-radius: 15px;
-  padding: 40px 20px;
+  padding:20px;
   gap: 40px;
   box-sizing: border-box;
 
-  .left-panel, .right-panel {
+  .left-panel,
+  .right-panel {
     flex: 1;
     padding: 20px;
+  }
+
+  .right-panel {
+    background-color: $color-pure-white;
+    border-radius: 10px;
   }
 
   .left-panel {
     display: flex;
     flex-direction: column;
+    padding: 40px;
 
     h1 {
       font-size: 2.5rem;
@@ -71,7 +78,7 @@
       display: flex;
       gap: 15px;
       margin-top: auto; // Pushes buttons to the bottom
-      
+
       button {
         display: inline-flex;
         align-items: center;
@@ -88,13 +95,13 @@
         background-color: #2980b9;
         color: #ffffff;
         border: none;
-        
+
         &:hover {
           background-color: #3498db;
         }
 
         svg {
-            stroke: #ffffff;
+          stroke: #ffffff;
         }
       }
 
@@ -108,7 +115,7 @@
         }
 
         svg {
-            stroke: #2980b9;
+          stroke: #2980b9;
         }
       }
     }
