@@ -124,10 +124,6 @@ export default function Aboutus() {
           </p>
         </div>
       </section>
-
-      <div className="scroll-down-indicator">
-        <img  src="./assets/images/dubble_sift_arrow.png"/>
-      </div>
     </div>
     </div>
   );

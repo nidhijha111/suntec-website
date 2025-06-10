@@ -1,0 +1,221 @@
+@use "./variables" as *;
+.claim_settalement_section {
+  display: flex;
+  background-color: $color-greyish;
+  padding: 60px 60px 0px 60px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 5px solid $color-brand-blue;
+
+  .line_wrapper {
+    height: 3px;
+    width: 120px;
+    background-color: $color-brand-blue;
+    margin: 30px auto 23px auto;
+  }
+
+  .insurance-types {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 80px;
+    margin: 30px 0px;
+
+    .type-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+
+      .icon-wrapper {
+        width: 88px;
+        height: 90px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+      }
+
+      .label {
+        margin-top: 8px;
+        color: $font-color;
+        font-weight: 500;
+      }
+
+      &.active {
+        .icon-wrapper {
+          border: 3px solid $color-brand-blue;
+        }
+
+        .label {
+          color: $color-brand-blue;
+        }
+      }
+    }
+    @media (max-width: 597px) {
+      margin-top: 40px;
+      gap: 20px;
+    }
+    @media (max-width: 525px) {
+      .type-option {
+        .icon-wrapper {
+          width: 60px;
+          height: 60px;
+          padding: 20px;
+          img {
+            width: 40px;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+    @media (max-width: 446px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .insurance-form {
+    display: flex;
+    gap: 15px;
+    border: 1px solid $light-border-color;
+    width: 60%;
+    padding: 80px;
+    flex-direction: column;
+    margin-bottom: -20px;
+    box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
+    background-color: $color-greyish;
+
+    .form_input_wrapper {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+
+      @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero_section_input {
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      border: none;
+      height: 45px;
+      background: none;
+      width: 100%;
+    }
+
+    .terms {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 40px;
+      margin-top: 20px;
+
+      div {
+        display: flex;
+        align-items: center;
+        input {
+          margin-right: 8px;
+          width: 20px;
+          height: 20px;
+          border-radius: 0px;
+        }
+
+        a {
+          color: $color-brand-blue;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  @media (max-width: 991px) {
+    padding: 30px;
+    width: 100%;
+
+    .insurance-types {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .insurance-form {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.claim-help-section {
+  padding: 20px 60px;
+  background-color: $color-sky-blue;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  .main_heading_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .button-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0px 40px;
+    row-gap: 20px;
+    justify-content: center;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      font-size: 15px;
+      justify-content: center;
+    }
+    .phone-button {
+      background-color: $color-brand-blue;
+      color: $color-brand-yellow;
+      border: none;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      &:hover {
+        background-color: $color-brand-blue;
+      }
+    }
+
+    .email-button {
+      background-color: $color-brand-yellow;
+      color: $color-brand-blue;
+      border: none;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      &:hover {
+        background-color: $color-sky-blue;
+      }
+    }
+    .border-button {
+      background: none;
+      border: 2px solid $color-brand-blue;
+      font-size: 25px;
+      display: flex;
+      flex-direction: column;
+      font-family: $font-regular;
+      font-weight: 500;
+      justify-content: flex-start;
+      align-items: flex-start;
+      line-height: 0.8;
+    }
+  }
+}
