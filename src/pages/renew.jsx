@@ -7,8 +7,11 @@ export default function Renew() {
     <div className="container">
       <div className="insurance-renewal-page">
         <div className="left-panel">
-          <h1>Commercial Vehicle Insurance</h1>
-          <div className="divider"></div>
+          <div className="main_heading_text">
+            <div className="blue">Commercial Vehicle Insurance</div>
+            <div className="divider"></div>
+          </div>
+
           <h2>Renew your policy</h2>
 
           <div className="assistance-section">
@@ -18,7 +21,7 @@ export default function Renew() {
               className="truck-illustration"
             />
             <div className="assistance-text">
-              <h3>Need assistance with Renewals?</h3>
+              <h3>Need assistance <br/> <span className="yellow">with Renewals?</span></h3>
               <p>Call or write to us</p>
             </div>
           </div>
@@ -30,7 +33,7 @@ export default function Renew() {
             </button>
             <button className="email-button">
               <img
-                src="./assets/images/message_icons.png"
+                src="./assets/images/blue_message_icon.png"
                 alt="messages icon"
               />
               <span>support@suntecinsurance.com</span>

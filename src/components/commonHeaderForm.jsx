@@ -45,12 +45,15 @@ export default function CommonHeaderForm({ headerText }) {
     <div>
       <div className="hero-common-section">
         {headerText && (
+          <>
           <div className="main_heading_text">
             <div className="blue">Buy or Renew</div>
             <div className="yellow">Insurance</div>
           </div>
+          <div className="margin-bottom"></div>
+          </>
         )}
-
+         
         <div className="insurance-types">
           {insuranceTypes.map((type) => (
             <div

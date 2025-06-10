@@ -1,6 +1,5 @@
 @use "./styles/variables" as *;
 
-
 @font-face {
   font-family: "Helvetica Neue";
   src: url("/fonts/HelveticaNeueBlack.otf") format("opentype");
@@ -327,11 +326,14 @@ footer {
   flex-direction: column;
   justify-content: center;
 
+  .margin-bottom {
+    margin-top: 60px;
+  }
+
   .insurance-types {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 40px;
-    margin-top: 60px;
     margin-bottom: 30px;
 
     .type-option {

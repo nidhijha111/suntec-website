@@ -4,7 +4,7 @@
   width: 100%;
   background-color: $color-greyish;
   border-radius: 15px;
-  padding:20px;
+  padding: 20px;
   gap: 40px;
   box-sizing: border-box;
 
@@ -15,7 +15,7 @@
   }
 
   .right-panel {
-    background-color: $color-pure-white;
+    background-color: $color-whitish;
     border-radius: 10px;
   }
 
@@ -24,25 +24,19 @@
     flex-direction: column;
     padding: 40px;
 
-    h1 {
-      font-size: 2.5rem;
-      color: #3170a7;
-      margin: 0;
-      font-weight: 600;
-    }
-
+    
     .divider {
       width: 60px;
-      height: 4px;
-      background-color: #f7b731;
-      margin: 15px 0 25px;
+      height: 3px;
+      background-color: $color-brand-yellow;
+      margin: 30px 0 23px;
     }
 
     h2 {
       font-size: 1.8rem;
-      color: #f7b731;
+      color: $color-brand-yellow;
       margin: 0 0 40px;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     .assistance-section {
@@ -59,16 +53,17 @@
       .assistance-text {
         h3 {
           font-size: 1.5rem;
-          color: #3170a7;
+          color: $color-brand-blue;
           margin: 0 0 5px;
+          font-weight: 400;
 
           span {
-            color: #f7b731;
+            color: $color-brand-yellow;
           }
         }
         p {
           font-size: 1rem;
-          color: #555;
+          color: $font-color;
           margin: 0;
         }
       }
@@ -80,24 +75,25 @@
       margin-top: auto; // Pushes buttons to the bottom
 
       button {
-        display: inline-flex;
+        display:flex;
         align-items: center;
         gap: 10px;
         padding: 12px 20px;
         border-radius: 8px;
-        font-size: 0.9rem;
         font-weight: 500;
         cursor: pointer;
         transition: all 0.3s ease;
+        width: 50%;
+        justify-content: center;
       }
 
       .phone-button {
-        background-color: #2980b9;
-        color: #ffffff;
+        background-color: $color-brand-blue;
+        color: $color-brand-yellow;
         border: none;
 
         &:hover {
-          background-color: #3498db;
+          background-color: $color-brand-blue;
         }
 
         svg {
@@ -106,16 +102,16 @@
       }
 
       .email-button {
-        background-color: #ffffff;
-        color: #2980b9;
-        border: 1px solid #2980b9;
+        background-color: $color-pure-white;
+        color: $color-brand-blue;
+        border: 2px solid $color-brand-blue;
 
         &:hover {
-          background-color: #eaf3fa;
+          background-color: $color-sky-blue;
         }
 
         svg {
-          stroke: #2980b9;
+          stroke: $color-brand-blue;
         }
       }
     }
