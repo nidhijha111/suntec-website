@@ -136,6 +136,7 @@ export default function Claims() {
           </button>
         </div>
       </div>
+      <BottomTopScrollSection />
     </div>
   );
 }
