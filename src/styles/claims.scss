@@ -152,7 +152,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
-  .main_heading_text{
+  .main_heading_text {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -187,10 +187,6 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
-
-      &:hover {
-        background-color: $color-brand-blue;
-      }
     }
 
     .email-button {
@@ -200,10 +196,6 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
-
-      &:hover {
-        background-color: $color-sky-blue;
-      }
     }
     .border-button {
       background: none;

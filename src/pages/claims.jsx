@@ -12,7 +12,7 @@ export default function Claims() {
           Commercial <br /> Vehicle
         </>
       ),
-      icon: "/assets/images/commerical_vical_icon.svg", // Replace with your local image path
+      icon: "/assets/images/commerical_vical_icon.svg", 
     },
     {
       id: "car",
