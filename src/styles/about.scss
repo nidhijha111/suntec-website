@@ -1,0 +1,158 @@
+@use "./variables" as *;
+
+.our-story-page {
+  width: 100%;
+  overflow-x: hidden;
+
+  .header-story-section {
+    display: flex;
+    min-height: 500pxs;
+    width: 100%;
+    background-color: $color-greyish;
+    margin-bottom: 60px;
+
+    .image-container,
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .image-container {
+      padding: 0;
+      width: 80%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .text-container {
+      width: 20%;
+
+      .divider {
+        width: 80px;
+        height: 4px;
+        background-color: #f7b731;
+        margin: 20px 0 30px;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #555555;
+        max-width: 550px;
+      }
+
+      &.blue-bg {
+        background-color: #2980b9;
+        p {
+          color: #e0e0e0;
+        }
+      }
+      .title-blue {
+        color: #2980b9;
+      }
+      .title-yellow {
+        color: #f7b731;
+      }
+    }
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.services_section{
+  
+}
+
+.scroll-down-indicator {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 30px;
+    height: 30px;
+    animation: bounce 2s infinite;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .story-section {
+    min-height: auto;
+
+    .text-container {
+      h2 {
+        font-size: 2.2rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .story-section {
+    flex-direction: column !important;
+
+    .image-container,
+    .text-container {
+      min-width: 100%;
+    }
+
+    .image-container {
+      height: 300px;
+    }
+
+    .text-container {
+      padding: 40px 20px;
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+        max-width: 100%;
+      }
+    }
+
+    &:first-of-type .text-container,
+    .text-container {
+      align-items: center;
+      text-align: center;
+      .divider {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+  .disclaimer-bar {
+    padding: 20px;
+    font-size: 0.7rem;
+  }
+}

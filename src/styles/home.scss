@@ -1,0 +1,580 @@
+@use "./variables" as *;
+
+h1 {
+  font-size: $font-size-heading;
+  font-weight: 600;
+
+  .yellow_text {
+    color: $color-brand-yellow;
+  }
+  .blue_text {
+    color: $color-brand-blue;
+  }
+}
+
+.categories_section {
+  padding: 60px 0px;
+  .category-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 60px;
+    .category_grid_card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .grid_card_icon_wrapper {
+        background-color: $color-sky-blue;
+        width: 120px;
+        height: 120px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+        transition: box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+      .grid_text_wrapper {
+        text-align: center;
+        margin-top: 30px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .category-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .category-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 0px;
+
+    .category-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 30px 0px;
+
+    .category-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+
+      .category_grid_card {
+        .grid_text_wrapper {
+          margin-top: 15px;
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
+}
+.why-suntec {
+  display: flex;
+  background-color: $color-greyish;
+  .why_suntec_color_card {
+    width: 40%;
+    background-color: $color-brand-blue;
+    color: $color-pure-white;
+    padding: 60px 30px 60px 60px;
+  }
+
+  .features_card_wrapper {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    width: 60%;
+
+    .fetured_card {
+      width: 100%;
+      background-color: $color-pure-white;
+      padding: 20px;
+    }
+  }
+}
+
+.our_patners_section {
+  padding: 40px 0px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  .our_patners_info_conatiner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+  }
+  @media (max-width: 900px) {
+    .our_patners_info_conatiner {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  @media (max-width: 700px) {
+    .our_patners_info_conatiner {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 450px) {
+    .our_patners_info_conatiner {
+      gap: 20px;
+
+      img {
+        max-width: 150px;
+      }
+    }
+  }
+}
+
+.how_we_work_section {
+  padding: 40px 0px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  .our_work_conatiner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 120px;
+    column-gap: 60px;
+    width: 100%;
+    margin-top: 90px;
+
+    .our_work_card_wrapper {
+      width: 100%;
+      border: 3px solid $color-brand-blue;
+      height: 100%;
+      border-radius: 10px;
+      padding: 5px;
+
+      .our_work_card {
+        background-color: $color-brand-yellow;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        color: $color-brand-blue;
+        font-size: 25px;
+        padding: 100px 40px 40px 40px;
+        height: 100%;
+
+        .our_wor_icon_wrapper {
+          width: 120px;
+          height: 120px;
+          border-radius: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $color-brand-blue;
+          position: absolute;
+          top: -60px;
+        }
+      }
+    }
+
+    @media (max-width: 968px) {
+      .our_work_card_wrapper {
+        .our_work_card {
+          padding: 80px 30px 30px 30px;
+          font-size: 20px;
+          .our_wor_icon_wrapper {
+            width: 100px;
+            height: 100px;
+          }
+        }
+      }
+    }
+    @media (max-width: 860px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 534px) {
+      grid-template-columns: 1fr;
+
+      .our_work_card_wrapper {
+        min-height: 200px;
+      }
+    }
+  }
+
+  .our_work_some_info_wrapper {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .our_location_warapper_section {
+    display: flex;
+    margin-top: 40px;
+
+    .map_image_wrapper {
+      width: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .work_info_wrapper {
+      background-color: $color-brand-blue;
+      width: 50%;
+      text-align: left;
+      padding: 60px;
+      color: $color-pure-white;
+      display: flex;
+      flex-direction: column;
+      row-gap: 30px;
+
+      .heading_text {
+        font-size: $font-size-heading;
+        font-weight: 700;
+        color: $color-brand-yellow;
+      }
+    }
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      .map_image_wrapper {
+        width: 100%;
+      }
+      .work_info_wrapper {
+        padding: 40px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.about_our_services_section {
+  display: flex;
+  align-items: center;
+  padding: 40px 0px;
+  justify-content: center;
+
+  .about_work_info_text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 80px;
+    .yellow_heading_text {
+      font-size: $font-size-heading;
+      color: $color-brand-yellow;
+      font-weight: 700;
+    }
+    .blue_heading_text {
+      font-size: $font-size-heading;
+      color: $color-brand-blue;
+      font-weight: 700;
+    }
+    .line_wrapper {
+      height: 3px;
+      width: 120px;
+      background-color: $color-brand-yellow;
+      margin: 30px 0px;
+    }
+
+    .text_wrapper {
+      margin-top: 20px;
+    }
+  }
+
+  @media (max-width: 996px) {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+  @media (max-width: 768px) {
+    .about_work_info_text {
+      padding: 0px 40px;
+    }
+  }
+  @media (max-width: 500px) {
+    .about_work_info_text {
+      padding: 0px;
+    }
+  }
+}
+
+.why-suntec-section {
+  padding: 40px 0px;
+
+  .why-suntec-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    background-color: $color-greyish;
+
+    .why-suntec-left {
+      width: 45%;
+      background-color: $color-brand-blue;
+      color: $color-pure-white;
+      padding: 60px;
+
+      .main-heading {
+        font-size: $font-size-heading;
+        font-weight: 500;
+        margin-bottom: 20px;
+        line-height: 1.3;
+        color: $color-pure-white;
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+    }
+
+    .why-suntec-right {
+      width: 55%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 40px 20px;
+      gap: 20px;
+      background-color: $color-greyish;
+
+      .feature-card {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        padding: 30px 20px;
+        max-width: 300px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+
+        img {
+          width: 50px;
+          height: 50px;
+          margin-bottom: 20px;
+        }
+
+        .card-title {
+          font-weight: 500;
+          color: $color-brand-blue;
+          margin-bottom: 15px;
+          line-height: 1.4;
+        }
+
+        p {
+          font-size: 15px;
+          line-height: 1.6;
+        }
+      }
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @media (max-width: 568px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .why-suntec-container {
+      flex-direction: column;
+
+      .why-suntec-left,
+      .why-suntec-right {
+        width: 100%;
+        padding: 30px;
+      }
+
+      .why-suntec-right {
+        flex-direction: column;
+        align-items: center;
+
+        .feature-card {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.banner_image_section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
+}
+
+.insurance-section {
+  .insurance-container {
+    display: flex;
+    margin: 0 auto;
+    background-color: $color-greyish;
+
+    .left-side {
+      width: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .right-side {
+      width: 50%;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .insurance-types {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-top: 60px;
+        margin-bottom: 30px;
+
+        .type-option {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          cursor: pointer;
+
+          .icon-wrapper {
+            width: 88px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $color-pure-white;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+          }
+
+          .label {
+            margin-top: 8px;
+            color: $font-color;
+            font-weight: 500;
+          }
+
+          &.active {
+            .icon-wrapper {
+              border: 3px solid $color-brand-blue;
+            }
+
+            .label {
+              color: $color-brand-blue;
+            }
+          }
+        }
+        @media (max-width: 597px) {
+          margin-top: 40px;
+          gap: 20px;
+        }
+        @media (max-width: 525px) {
+          .type-option {
+            .icon-wrapper {
+              width: 60px;
+              height: 60px;
+              padding: 20px;
+              img {
+                width: 40px;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+        @media (max-width: 446px) {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+
+      .insurance-form {
+        display: grid;
+        gap: 15px;
+        margin-top: 30px;
+
+        .form_input_wrapper {
+          display: grid;
+          width: 100%;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+
+          @media (max-width: 500px) {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .hero_section_input {
+          padding: 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+          border: none;
+          height: 45px;
+          background: none;
+          width: 100%;
+        }
+
+        .terms {
+          grid-column: span 2;
+          display: flex;
+          align-items: center;
+        
+
+          input {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+            border-radius: 0px;
+          }
+
+          a {
+            color: $color-brand-blue;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .insurance-container {
+      flex-direction: column;
+      .left-side {
+        width: 100%;
+      }
+      .right-side {
+        padding: 30px;
+        width: 100%;
+
+        .insurance-types {
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+
+        .insurance-form {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+}

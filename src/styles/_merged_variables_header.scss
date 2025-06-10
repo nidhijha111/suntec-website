@@ -1,0 +1,47 @@
+// --- Your Provided Variables ---
+$font-size-heading: 40px;
+$font-size-subheading: 25px;
+$font-size-body: 15px;
+
+$font-regular: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-medium: "Helvetica Neue Medium", Helvetica, Arial, sans-serif !default;
+$font-bold: "Helvetica Neue Bold", Helvetica, Arial, sans-serif !default;
+
+$color-brand-blue: rgb(4, 123, 193);
+$color-brand-yellow: rgb(254, 192, 15);
+$color-sky-blue: rgb(217, 235, 249);
+$color-creamish: rgb(255, 251, 242);
+$color-greyish: rgb(247, 243, 239);
+$color-whitish: rgb(255, 251, 247);
+$color-pure-white: rgb(255, 255, 255);
+$banner-bg: rgb(251, 246, 240);
+$font-color: #595b61;
+
+
+$spacing-xs: 5px;
+$spacing-sm: 8px;
+$spacing-md: 10px;
+$spacing-lg: 15px;
+$spacing-xl: 20px;
+$spacing-xxl: 25px;
+$spacing-xxxl: 30px;
+$spacing-xxxxl: 40px;
+
+
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+
+$box-shadow-light: 0 8px 20px rgba(0, 0, 0, 0.1);
+$box-shadow-mobile-menu: -5px 0 15px rgba(0, 0, 0, 0.1);
+
+
+$transition-speed-fast: 0.2s;
+$transition-speed-normal: 0.3s;
+$transition-speed-slow: 0.4s;
+$transition-bezier: cubic-bezier(0.77, 0, 0.175, 1);
+
+
+$breakpoint-desktop-lg: 1200px;
+$breakpoint-desktop: 992px; // Your current mobile breakpoint
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 576px;
