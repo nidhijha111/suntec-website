@@ -9,7 +9,7 @@ export default function Support() {
       <section className="header-story-section">
         <div className="image-container">
           <img
-            src="./assets/images/about_us_hero_banner.png"
+            src="./assets/images/support-image.png"
             alt="Logistics and insurance concept with model vehicles and laptop"
           />
         </div>

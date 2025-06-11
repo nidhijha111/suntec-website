@@ -12,11 +12,11 @@ export default function WhyWechooseSection() {
           <p>
             At Suntec Insurance, we believe service isn’t just a feature.
             Especially in commercial Insurance, where processes are complex,
-            businesses need more than a policy – they need someone who stands by
+            businesses need more than a policy - they need someone who stands by
             them when it matters.
           </p>
           <p>
-            We simplify the Insurance process, helping you make sense of it,
+            We simplify the insurance process, helping you make sense of it,
             manage it, and, most importantly, claim it without chaos. Insurance
             isn’t just about the sale but about processing claims when needed.
           </p>
@@ -51,7 +51,7 @@ export default function WhyWechooseSection() {
               policies
             </div>
             <p>
-              We stay with you beyond the sale – helping you in facilitating
+              We stay with you beyond the sale - helping you in facilitating
               claims, simplifying coverage, and providing a personal touch at
               every step of the way.
             </p>
