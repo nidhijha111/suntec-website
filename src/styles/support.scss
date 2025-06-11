@@ -53,6 +53,13 @@
       max-width: 550px;
     }
   }
+  @media (max-width: 840px) {
+    flex-direction: column;
+    .image-container,
+    .text-container {
+      width: 100%;
+    }
+  }
 }
 
 .support-service-section {
@@ -68,6 +75,7 @@
     border-radius: 10px;
     display: grid;
     gap: 20px;
+    width: 100%;
 
     .form-wrapper {
       display: flex;
@@ -103,6 +111,7 @@
     border-radius: 10px;
     display: grid;
     gap: 20px;
+    width: 100%;
 
     .info-card-wrapper {
       border: 2px solid $color-brand-yellow;
@@ -150,6 +159,46 @@
         justify-content: space-between;
         margin: 30px 0px 0px 20px;
         padding-left: 0px !important;
+      }
+    }
+  }
+
+  @media (max-width: 962px) {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    .form-wrapper-section,
+    .help-line-info-section {
+      padding: 40px 20px;
+    }
+    .help-line-info-section {
+      .info-card-wrapper {
+        padding: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 469px) {
+    .help-line-info-section {
+      .info-card-wrapper {
+        .info-heading-text {
+          font-size: 20px;
+        }
+        .contact-info-text {
+          gap: 5px;
+          font-size: 13px;
+        }
+      }
+      .location-info-cards {
+        .location-heading-text {
+          font-size: 20px;
+        }
+        .location-items {
+            flex-direction: column;
+        }
       }
     }
   }

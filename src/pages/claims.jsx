@@ -115,7 +115,7 @@ export default function Claims() {
             <div className="yellow">claims faster.</div>
           </div>
         </div>
-        <div>
+        <div className="image-wrapper">
           <img src="./assets/images/setting_image.png" alt="service  image" />
         </div>
         <div className="button-wrapper">

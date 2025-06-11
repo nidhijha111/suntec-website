@@ -54,6 +54,9 @@
         }
       }
     }
+    @media (max-width: 768px) {
+      gap: 40px;
+    }
     @media (max-width: 597px) {
       margin-top: 40px;
       gap: 20px;
@@ -142,6 +145,22 @@
 
     .insurance-form {
       grid-template-columns: 1fr;
+      padding: 40px;
+      width: 80%;
+      margin-bottom: -50px;
+      .terms {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        row-gap: 20px;
+      }
+    }
+  }
+  @media (max-width: 641px) {
+    padding: 20px;
+    .insurance-form {
+      width: 90%;
+      padding: 20px;
     }
   }
 }
@@ -151,6 +170,7 @@
   background-color: $color-sky-blue;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
 
   .main_heading_text {
     display: flex;
@@ -209,5 +229,29 @@
       align-items: flex-start;
       line-height: 0.8;
     }
+
+    @media (max-width: 500px) {
+      padding:0px;
+    }
+  }
+
+  .image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 90%;
+      object-fit: contain;
+      min-width: 220px;
+      max-width: 270px;
+    }
+  }
+  @media (max-width: 962px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    grid-template-columns: 1fr;
   }
 }

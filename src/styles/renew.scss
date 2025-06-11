@@ -1,16 +1,16 @@
 @use "./variables" as *;
 .insurance-renewal-page {
-  display: flex;
+  display: grid;
   width: 100%;
   background-color: $color-greyish;
   border-radius: 15px;
   padding: 20px;
   gap: 40px;
+  grid-template-columns: 1fr 1fr;
   box-sizing: border-box;
 
   .left-panel,
   .right-panel {
-    flex: 1;
     padding: 20px;
   }
 
@@ -114,6 +114,16 @@
           stroke: $color-brand-blue;
         }
       }
+
+      @media(max-width:650px){
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
     }
+  }
+
+  @media(max-width:962px){
+    grid-template-columns: 1fr;
   }
 }
