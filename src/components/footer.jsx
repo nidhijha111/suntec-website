@@ -1,14 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
+  const navigate = useNavigate();
   return (
     <footer className="footer">
       <div className="footer-grid">
         <div className="footer_link_wrapper">
           <div className="footer_head_link">About Us</div>
 
-          <div className="footer_link">Our Story</div>
-          <div className="footer_link">Careers</div>
+          <div className="footer_link" onClick={() => navigate("/about")}>Our Story</div>
+          <div className="footer_link" onClick={() => navigate("/about")}>Careers</div>
         </div>
         <div className="footer_link_wrapper">
           <div className="footer_head_link">Motor Insurance</div>
