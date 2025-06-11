@@ -87,6 +87,11 @@
       }
       @media (max-width: 600px) {
         padding: 20px;
+        .button-group {
+           .btn{
+            width: 100px;
+           }
+        }
       }
     }
     @media (max-width: 962px) {
