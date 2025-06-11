@@ -125,6 +125,9 @@ body {
   color: $font-color;
   overflow: visible;
   height: 100%;
+  font-weight: 300;
+  letter-spacing: 0.9px;
+  line-height: 1.5;
 }
 
 body,
@@ -136,6 +139,7 @@ html,
 footer {
   padding: 30px 96px;
   font-size: 15px;
+  line-height: 1.6;
   color: $font-color;
   .footer-grid {
     border-top: 1px solid $font-color;
@@ -149,8 +153,14 @@ footer {
       display: flex;
       flex-direction: column;
       row-gap: 20px;
+      font-weight: 300;
+      letter-spacing: 0.9px;
       .footer_head_link {
-        font-weight: 700;
+        font-weight: 500;
+      }
+      .footer_link {
+        font-weight: 300;
+        cursor: pointer;
       }
       .footer_icon_wrapper {
         display: flex;
@@ -169,6 +179,8 @@ footer {
 
   .footer_info_text_wrapper {
     text-align: center;
+    font-weight: 300;
+    letter-spacing: 0.9px;
   }
 
   @media (max-width: 1100px) {
@@ -198,7 +210,6 @@ footer {
   display: flex;
   justify-content: space-between;
 }
-
 
 .container {
   width: 100%;
@@ -389,7 +400,6 @@ footer {
   }
 }
 
-
 .scroll-down-indicator {
   width: 100%;
   display: flex;
@@ -397,14 +407,12 @@ footer {
   align-items: center;
   margin: 30px auto;
 
-
   img {
     width: 30px;
     height: 30px;
     animation: bounce 2s infinite;
   }
 }
-
 
 @media (max-width: 1100px) {
   .container {

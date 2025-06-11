@@ -85,7 +85,7 @@ body.mobile-menu-active {
   }
 }
 
-/*sNavigation Menu (Desktop & Mobile Base Styles) */
+
 .nav-links-wrapper {
   display: flex;
   align-items: center;
@@ -133,7 +133,6 @@ body.mobile-menu-active {
     }
 
     .submenu-list {
-      // Default hidden state for all submenus
       list-style: none;
       padding: 0;
       margin: 0;
@@ -142,7 +141,7 @@ body.mobile-menu-active {
   }
 }
 
-/* 5. Desktop Specific Styling (min-width: 993px) */
+
 @media (min-width: 993px) {
   .nav-menu {
     .nav-item.has-submenu {
@@ -156,7 +155,7 @@ body.mobile-menu-active {
         transition: top 0.3s ease, opacity 0.3s ease, visibility 0.3s;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
-        background-color: $color-creamish; // Corrected: Using the defined variable
+        background-color: $color-creamish; 
         border-top: 4px solid $color-brand-yellow;
         padding: 15px 20px;
         min-width: 200px;
@@ -295,7 +294,7 @@ body.mobile-menu-active {
   }
 }
 
-/* 6. Mobile Menu & Responsiveness (max-width: 992px) */
+
 .mobile-menu-toggle {
   display: none;
   background: none;

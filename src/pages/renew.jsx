@@ -1,6 +1,7 @@
 import React from "react";
 import CommonHeaderForm from "../components/commonHeaderForm";
 import "../styles/renew.scss";
+import BottomTopScrollSection from '../components/bottomTopScrollSection'
 
 export default function Renew() {
   return (
@@ -21,7 +22,10 @@ export default function Renew() {
               className="truck-illustration"
             />
             <div className="assistance-text">
-              <h3>Need assistance <br/> <span className="yellow">with Renewals?</span></h3>
+              <h3>
+                Need assistance <br />{" "}
+                <span className="yellow">with Renewals?</span>
+              </h3>
               <p>Call or write to us</p>
             </div>
           </div>
@@ -44,6 +48,7 @@ export default function Renew() {
           <CommonHeaderForm />
         </div>
       </div>
+      <BottomTopScrollSection />
     </div>
   );
 }
