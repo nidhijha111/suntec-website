@@ -133,7 +133,7 @@
 
   @media (max-width: 962px) {
     grid-template-columns: 1fr;
-    .right-panel {
+    .right-panel,.left-panel {
       padding:0px;
     }
   }
