@@ -6,6 +6,7 @@ import MajorBenefits from "../components/productComponents/majorBenefits";
 import InsuranceTips from "../components/productComponents/InsuranceTips";
 import HowWeCanBuyPolicies from "../components/productComponents/HowWeCanBuyPolicies";
 import DocumentsNeededSection from "../components/productComponents/DocumentsNeededSection";
+import BottomTopScrollSection from "../components/bottomTopScrollSection";
 
 export default function Products() {
   return (
@@ -16,6 +17,7 @@ export default function Products() {
       <InsuranceTips/>
       <HowWeCanBuyPolicies/>
       <DocumentsNeededSection/>
+      <BottomTopScrollSection/>
     </div>
   );
 }
