@@ -1,10 +1,6 @@
-import "../styles/header.scss"; // Ensure this path is correct
+import "../styles/header.scss";
 import React, { Fragment, useState, useEffect, useCallback, memo } from "react";
 import { useLocation, Link } from "react-router-dom";
-
-// --- UNIFIED Data Structures for Products and Renew ---
-// Each item has 'id', 'label', 'link', and optionally 'children' for nested items.
-// This is the single source of truth for the *content* of these menus.
 
 const productsMenuData = [
   {
@@ -58,7 +54,7 @@ const productsMenuData = [
     id: "life-insurance",
     label: "Life Insurance",
     link: "/product/life",
-    children: [], // No sub-items
+    children: [], 
   },
   {
     id: "health-insurance",
@@ -149,14 +145,13 @@ const renewMenuData = [
   },
 ];
 
-// Main menu items data (references the unified data structures)
 const menuItemsData = [
   {
     id: "products",
     label: "Products",
     hasDropdown: true,
-    type: "mega-menu", // Indicates it should use the mega-menu layout for desktop
-    menuData: productsMenuData, // Unified data source for products
+    type: "mega-menu", 
+    menuData: productsMenuData, 
   },
   {
     id: "renew",

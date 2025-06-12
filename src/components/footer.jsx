@@ -38,7 +38,7 @@ export default function Footer() {
         <div className="footer_link_wrapper">
           <div className="footer_head_link">Office Address</div>
           <div>
-            B 206, nd Floor, Eastern Business District, Lal Bahadur Shastri
+            B 206, 2nd Floor, Eastern Business District, Lal Bahadur Shastri
             Marg, Bhandup West, Mumbai, Maharashtra 400078
           </div>
           <div>
@@ -61,7 +61,7 @@ export default function Footer() {
       <div>
         <div className="footer_info_text_wrapper">
           <img src="./assets/images/dot_icon.png" alt="dot icon" /> Suntec
-          Insurance Broking Private Limited CIN : U74999HR2014PTC053454,
+          Insurance Broking Private Limited <span className="red">CIN : U74999HR2014PTC053454</span>,
           Registered Office : B 206, 2nd Floor, Eastern Business District, Lal
           Bahadur Shastri Marg, Bhandup West, Mumbai, Maharashtra 400078, Tel
           No. : 022 45197023 I Email ID : care@suntecinsurance.com
@@ -107,7 +107,7 @@ export default function Footer() {
         </div>
       </div>
       <p className="copyright footer_info_text_wrapper">
-        © 2025-2026 suntecinsurance.com. All Rights Reserved.
+        © Copyright 2026 - 2025 suntecinsurance.com. All Rights Reserved I Sitemap I FAQ’S
       </p>
     </footer>
   );

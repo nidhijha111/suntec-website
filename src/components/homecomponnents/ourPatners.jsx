@@ -10,40 +10,49 @@ export default function OurPatners() {
       </div>
       <div className="our_patners_info_conatiner">
         <div>
-            <img src="./assets/images/lic_logo_items.png" alt="insurance icon"/>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
-         <div>
-            <img src="./assets/images/lic_logo_items.png" alt="insurance icon"/>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
-         <div>
-            <img src="./assets/images/lic_logo_items.png" alt="insurance icon"/>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
-         <div>
-            <img src="./assets/images/lic_logo_items.png" alt="insurance icon"/>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
-         <div>
-            <img src="./assets/images/lic_logo_items.png" alt="insurance icon"/>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
-         <div>
-            <img src="./assets/images/lic_logo_items.png" alt="insurance icon"/>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
-         <div>
-            <img src="./assets/images/lic_logo_items.png" alt="insurance icon"/>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
-         <div>
-            <img src="./assets/images/lic_logo_items.png" alt="insurance icon"/>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
-         <div>
-            <img src="./assets/images/lic_logo_items.png" alt="insurance icon"/>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
-         <div>
-            <img src="./assets/images/lic_logo_items.png" alt="insurance icon"/>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
-         <div>
-            <img src="./assets/images/lic_logo_items.png" alt="insurance icon"/>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
-         <div>
-            <img src="./assets/images/lic_logo_items.png" alt="insurance icon"/>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
+        </div>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
+        </div>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
+        </div>
+        <div>
+          <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
       </div>
     </section>
