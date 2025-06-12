@@ -107,43 +107,43 @@ const productsMenuData = [
   },
 ];
 
-const renewMenuData = [
-  {
-    id: "motor-policy",
-    label: "Motor Policy",
-    link: "/renew/motor",
-    children: [
-      {
-        id: "renew-car",
-        label: "Renew Car Insurance",
-        link: "/renew/motor/car",
-      },
-      {
-        id: "renew-bike",
-        label: "Renew Bike Insurance",
-        link: "/renew/motor/bike",
-      },
-    ],
-  },
-  {
-    id: "health-policy",
-    label: "Health Policy",
-    link: "/renew/health",
-    children: [],
-  },
-  {
-    id: "travel-policy",
-    label: "Travel Policy",
-    link: "/renew/travel",
-    children: [],
-  },
-  {
-    id: "fire-policy",
-    label: "Fire Policy",
-    link: "/renew/fire",
-    children: [],
-  },
-];
+// const renewMenuData = [
+//   {
+//     id: "motor-policy",
+//     label: "Motor Policy",
+//     link: "/renew/motor",
+//     children: [
+//       {
+//         id: "renew-car",
+//         label: "Renew Car Insurance",
+//         link: "/renew/motor/car",
+//       },
+//       {
+//         id: "renew-bike",
+//         label: "Renew Bike Insurance",
+//         link: "/renew/motor/bike",
+//       },
+//     ],
+//   },
+//   {
+//     id: "health-policy",
+//     label: "Health Policy",
+//     link: "/renew/health",
+//     children: [],
+//   },
+//   {
+//     id: "travel-policy",
+//     label: "Travel Policy",
+//     link: "/renew/travel",
+//     children: [],
+//   },
+//   {
+//     id: "fire-policy",
+//     label: "Fire Policy",
+//     link: "/renew/fire",
+//     children: [],
+//   },
+// ];
 
 const menuItemsData = [
   {
@@ -153,21 +153,21 @@ const menuItemsData = [
     type: "mega-menu", 
     menuData: productsMenuData, 
   },
-  {
-    id: "renew",
-    label: "Renew",
-    hasDropdown: true,
-    type: "mega-menu", // Assuming renew also needs a mega-menu like layout
-    menuData: renewMenuData, // Unified data source for renew
-  },
-  { id: "claims", label: "Claims", link: "/claims", children: [] }, // Even non-dropdowns can have empty children for consistency
+  // {
+  //   id: "renew",
+  //   label: "Renew",
+  //   hasDropdown: true,
+  //   type: "mega-menu", 
+  //   menuData: renewMenuData, 
+  // },
+  { id: "renew", label: "Renew", link: "/renew", children: [] },
+  { id: "claims", label: "Claims", link: "/claims", children: [] }, 
   {
     id: "about",
     label: "About us",
     hasDropdown: true,
-    type: "standard-dropdown", // Explicitly define as a standard dropdown
+    type: "standard-dropdown", 
     menuData: [
-      // Inline data for simple standard dropdown
       { id: "our-story", label: "Our Story", link: "/about" },
       { id: "careers", label: "Careers", link: "/careers" },
     ],
@@ -175,7 +175,6 @@ const menuItemsData = [
   { id: "support", label: "Support", link: "/support", children: [] },
 ];
 
-// Reusable Icon Components (memoized for performance)
 const HamburgerIcon = memo(() => (
   <svg
     width="24"

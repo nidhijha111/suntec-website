@@ -7,6 +7,7 @@ import HeroSection from "../components/homecomponnents/heroSection";
 import CategoriesListing from "../components/homecomponnents/categoriesListing";
 import HomePageBanner from "../components/homecomponnents/HomePageBanner";
 import WhyWechooseSection from "../components/homecomponnents/WhyWechooseSection";
+import BottomTopScrollSection from "../components/bottomTopScrollSection";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <AbourOurServices />
       <HowdoweWork />
       <OurPatners />
+      <BottomTopScrollSection/>
     </main>
   );
 }
