@@ -4,28 +4,28 @@ export default function InsuranceTips() {
   const factorsData = [
     {
       id: "idv",
-      title: "Choose the right IDV",
+      title: <>Choose the <br/> right IDV</>,
       variant: "blue", // 'blue' or 'yellow' for the header
       description:
         "IDV represents the manufacturer's selling price of the commercial vehicle (including depreciation) you wish to insure. Choose an IDV that closely aligns with your vehicle's market value. A reduced IDV could lower your premium but may lead to higher expenses when filing a claim.",
     },
     {
       id: "support",
-      title: "Customer support",
+      title: <>Customer <br/> support</>,
       variant: "yellow",
       description:
         "Select an Insurance provider offering a simple and efficient claims process, 24/7 customer support, and quick claim resolutions.",
     },
     {
       id: "addons",
-      title: "Review add-ons",
+      title: <>Review <br/> add-ons</>,
       variant: "blue",
       description:
         "When selecting the ideal commercial Insurance for your vehicle, consider the available add-ons to ensure you receive maximum benefits.",
     },
     {
       id: "csr",
-      title: "Assess the Insurer's CSR",
+      title: <>Assess the <br/> Insurer's CSR</>,
       variant: "yellow",
       description:
         "Before making a purchase, review the insurer's CSR. A higher CSR indicates the company's ability to settle claims promptly, so opt for an insurer with a strong CSR.",
