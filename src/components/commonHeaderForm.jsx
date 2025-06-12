@@ -78,13 +78,35 @@ export default function CommonHeaderForm({ headerText }) {
               className="hero_section_input"
               placeholder="Enter Registration No.*"
             />
-            <select className="hero_section_input" defaultValue="">
-              <option>
-                Select vehicle Type*
-              </option>
-              <option>Normal</option>
-              <option>EV</option>
-            </select>
+            {(selectedType === "car" || selectedType === "bike") && (
+              <select className="hero_section_input" defaultValue="">
+                <option>Select vehicle Type*</option>
+                <option>Normal</option>
+                <option>EV</option>
+              </select>
+            )}
+            {selectedType === "commercial" && (
+              <select className="hero_section_input" defaultValue="">
+                <option>Select vehicle Type*</option>
+                <option>GCCV</option>
+                <option>PCCV</option>
+              </select>
+            )}
+
+            {selectedType === "other" && (
+              <select className="hero_section_input" defaultValue="">
+                <option>Select Product Type*</option>
+                <option>Marine Insurance</option>
+                <option>Aviation Insurance</option>
+                <option>Home Insurance</option>
+                <option>Travel Insurance</option>
+                <option>Personal Accident Insurance</option>
+                <option>Public Liability Insurance</option>
+                <option> Fidelity Guarantee Insurance</option>
+                <option>Cyber Crime Insurance</option>
+                <option> Life Insurance</option>
+              </select>
+            )}
             <input
               type="text"
               className="hero_section_input"
