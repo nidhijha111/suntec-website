@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
 export default function ProductHeroSection() {
+  const [insurencetype, setInsurenceType] = useState("buy");
   return (
     <div className="insurance-container">
       <div className="top-section">
@@ -17,22 +17,48 @@ export default function ProductHeroSection() {
             <div className="main_heading_text">
               <div className="blue">Buy or Renew</div>
               <div className="yellow">goods-carrying</div>
-              <div className="blue">vehicle Insurance</div> 
+              <div className="blue">vehicle Insurance</div>
             </div>
           </div>
 
           <div className="button-group">
-            <button className="btn primary">Buy</button>
-            <button className="btn secondary">Renew</button>
+            <button
+              className="btn primary"
+              onClick={() => setInsurenceType("buy")}
+            >
+              Buy
+            </button>
+            <button
+              className="btn secondary"
+              onClick={() => setInsurenceType("renew")}
+            >
+              Renew
+            </button>
           </div>
 
           <div className="form-grid">
-            <input className="hero_section_input" type="text" placeholder="Enter Registration No.*" />
-            <select className="hero_section_input">
-              <option>Vehicle Type*</option>
-            </select>
-            <input className="hero_section_input" type="email" placeholder="Enter Email Address*" />
-            <input className="hero_section_input" type="text" placeholder="Enter Mobile No.*" />
+            <input
+              className="hero_section_input"
+              type="text"
+              placeholder="Enter Registration No.*"
+            />
+            {insurencetype === "renew" && (
+              <input
+                className="hero_section_input"
+                type="text"
+                placeholder="Enter Policy No."
+              />
+            )}
+            <input
+              className="hero_section_input"
+              type="email"
+              placeholder="Enter Email Address*"
+            />
+            <input
+              className="hero_section_input"
+              type="text"
+              placeholder="Enter Mobile No.*"
+            />
           </div>
 
           <div className="terms">
@@ -49,8 +75,8 @@ export default function ProductHeroSection() {
       <div className="bottom-section">
         <div className="info-text">
           <div className="main_heading_text">
-            <div className="white">Goods-carrying vehicle</div> 
-            <div className="white">Insurance</div> 
+            <div className="white">Goods-carrying vehicle</div>
+            <div className="white">Insurance</div>
           </div>
           <p>
             Commercial Vehicle Insurance is a motor insurance that protects
