@@ -64,6 +64,10 @@ body.mobile-menu-active {
       height: 16px;
     }
   }
+
+  @media(max-width:962px){
+    padding:20px;
+  }
 }
 
 .navbar {
@@ -133,7 +137,7 @@ body.mobile-menu-active {
       list-style: none;
       padding: 0;
       margin: 0;
-      display: none; // Hidden by default for both mobile and desktop (will be overridden)
+      display: none; 
     }
   }
 }
@@ -141,7 +145,6 @@ body.mobile-menu-active {
 @media (min-width: 993px) {
   .nav-menu {
     .nav-item.has-submenu {
-      // Styles for standard dropdowns (like "About us")
       > .submenu-list {
         position: absolute;
         top: 150%;
@@ -156,18 +159,17 @@ body.mobile-menu-active {
         padding: 15px 20px;
         min-width: 200px;
         z-index: 101;
-        display: block; // Ensures it's block-level for absolute positioning
+        display: block; 
       }
 
-      // ***** MODIFIED: Apply common mega-menu CONTAINER styles here *****
-      // This applies to ANY .mega-menu-content when it's a direct child of a has-submenu nav-item
+      
       > .mega-menu-content {
         position: absolute;
-        top: 45px; // Initial slightly elevated position (will move to 100% when open)
-        left: 50%; // Center it relative to the parent nav-item's center
-        transform: translateX(-50%); // Pull it back by half its width to truly center
-        width: max(700px, 60vw); // Apply a consistent width for ALL mega-menus
-        max-width: 900px; // Max width constraint
+        top: 45px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        width: max(700px, 60vw); 
+        max-width: 900px; 
         opacity: 0;
         visibility: hidden;
         transition: top 0.3s ease, opacity 0.3s ease, visibility 0.3s, transform 0.3s ease;
@@ -177,37 +179,34 @@ body.mobile-menu-active {
         border-top: 4px solid $color-brand-yellow;
         padding: 25px;
         z-index: 101;
-        display: flex; // To make internal columns side-by-side
+        display: flex; 
         gap: 20px;
         align-items: start;
       }
 
-      // Styles for when a nav-item is 'open'
+
       &.open {
-        // Standard dropdown open state
+
         > .submenu-list {
           top: 100%;
           opacity: 1;
           visibility: visible;
         }
 
-        // ***** MODIFIED: Apply common mega-menu OPEN state styles here *****
+      
         > .mega-menu-content {
-          top: 100%; // Moves it to just below the nav-item
+          top: 100%; 
           opacity: 1;
           visibility: visible;
-          transform: translateX(-50%); // Keeps it centered
+          transform: translateX(-50%); 
         }
 
-        // Arrow icon rotation for any open dropdown
         > .nav-link .arrow-icon {
           transform: rotate(180deg);
         }
       }
     }
 
-    // ***** GENERIC Mega-Menu Internal Column and List Styling *****
-    // These rules apply to `main-column`, `sub-column`, `category-links` within ANY `.mega-menu-content`
     .mega-menu-content {
       .main-column {
         flex: 0 0 30%;
@@ -215,14 +214,12 @@ body.mobile-menu-active {
         min-width: 300px;
         padding-right: 15px;
         border-right: 1px solid rgba($font-color, 0.1);
-        //overflow-y: auto;
-        //max-height: 250px;
       }
 
       .sub-column {
         flex: 1;
         overflow-y: auto;
-        max-height: 250px;
+        max-height: 350px;
       }
 
       .category-links {
@@ -274,7 +271,6 @@ body.mobile-menu-active {
       }
     }
 
-    // Styles for nested standard dropdowns (e.g., within "About us" dropdown)
     .submenu-list .nav-item {
       font-size: $font-size-body;
       font-weight: 400;
@@ -378,12 +374,10 @@ body.mobile-menu-active {
       border-bottom: none;
     }
 
-    // In mobile view, mega-menu-content should typically be hidden
     .mega-menu-content {
       display: none;
     }
 
-    // Mobile submenu list styling (applies to standard and nested mega-menu items)
     .submenu-list {
       position: static;
       width: 100%;
@@ -397,13 +391,11 @@ body.mobile-menu-active {
       display: none;
       flex-direction: column;
 
-      // Nested submenu list
       .submenu-list {
         padding-left: 20px;
       }
     }
 
-    // When a mobile nav-item is open, show its submenu
     &.open {
       > .submenu-list {
         display: flex;

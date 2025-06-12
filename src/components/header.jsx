@@ -6,102 +6,100 @@ const productsMenuData = [
   {
     id: "motor-insurance",
     label: "Motor Insurance",
-    link: "/product/motor",
+    link: "/product",
     children: [
       {
         id: "goods-carrying",
         label: "Goods-carrying vehicle Insurance",
-        link: "/product/motor/goods-carrying",
+        link: "/product",
       },
       {
         id: "passenger-carrying",
         label: "Passenger-carrying vehicle Insurance",
-        link: "/product/motor/passenger-carrying",
+        link: "/product",
       },
       {
         id: "car-insurance",
         label: "Car Insurance",
-        link: "/product/motor/car",
+        link: "/product",
       },
       {
         id: "bike-insurance",
         label: "Bike Insurance",
-        link: "/product/motor/bike",
+        link: "/product",
       },
       {
         id: "electric-car-insurance",
         label: "Electric Car Insurance",
-        link: "/product/motor/electric-car",
+        link: "/product",
       },
       {
         id: "electric-bike-insurance",
         label: "Electric Bike Insurance",
-        link: "/product/motor/electric-bike",
+        link: "/product",
       },
       {
         id: "marine-insurance",
         label: "Marine Insurance",
-        link: "/product/motor/marine",
+        link: "/product",
       },
       {
         id: "aviation-insurance",
         label: "Aviation Insurance",
-        link: "/product/motor/aviation",
+        link: "/product",
       },
     ],
   },
   {
     id: "life-insurance",
     label: "Life Insurance",
-    link: "/product/life",
-    children: [], 
-  },
-  {
-    id: "health-insurance",
-    label: "Health Insurance",
-    link: "/product/health",
-    children: [],
-  },
-  {
-    id: "travel-insurance",
-    label: "Travel Insurance",
-    link: "/product/travel",
+    link: "/product",
     children: [],
   },
   {
     id: "other-categories",
-    label: "Other Categories Insurance",
-    link: "/product/other",
+    label: "Other Categories",
+    link: "/product",
     children: [
       {
         id: "home-insurance",
         label: "Home Insurance",
-        link: "/product/other/home",
+        link: "/product",
       },
       {
         id: "business-insurance",
         label: "Business Insurance",
-        link: "/product/other/business",
+        link: "/product",
       },
       {
-        id: "personal-accident",
+        id: "travel-insurance",
+        label: "Travel Insurance",
+        link: "/product",
+      },
+      {
+        id: "health-insurance",
+        label: "Health Insurance",
+        link: "/product",
+      },
+      {
+        id: "personal-accident-insurance",
         label: "Personal Accident Insurance",
-        link: "/product/other/personal-accident",
+        link: "/product",
       },
       {
-        id: "public-liability",
-        label: "Public Liability Insurance",
-        link: "/product/other/public-liability",
+        id: "public-liability-insurance ",
+        label: "Public Liability Insurance ",
+        link: "/product",
       },
       {
-        id: "fidelity-guarantee",
+        id: "fidelity-guarantee-insurance",
         label: "Fidelity Guarantee Insurance",
-        link: "/product/other/fidelity-guarantee",
+        link: "/product",
       },
       {
-        id: "cyber-crime",
+        id: "cyber-crime-insurance",
         label: "Cyber Crime Insurance",
-        link: "/product/other/cyber-crime",
+        link: "/product",
       },
     ],
   },
@@ -150,23 +148,23 @@ const menuItemsData = [
     id: "products",
     label: "Products",
     hasDropdown: true,
-    type: "mega-menu", 
-    menuData: productsMenuData, 
+    type: "mega-menu",
+    menuData: productsMenuData,
   },
   // {
   //   id: "renew",
   //   label: "Renew",
   //   hasDropdown: true,
-  //   type: "mega-menu", 
-  //   menuData: renewMenuData, 
+  //   type: "mega-menu",
+  //   menuData: renewMenuData,
   // },
   { id: "renew", label: "Renew", link: "/renew", children: [] },
-  { id: "claims", label: "Claims", link: "/claims", children: [] }, 
+  { id: "claims", label: "Claims", link: "/claims", children: [] },
   {
     id: "about",
     label: "About us",
     hasDropdown: true,
-    type: "standard-dropdown", 
+    type: "standard-dropdown",
     menuData: [
       { id: "our-story", label: "Our Story", link: "/about" },
       { id: "careers", label: "Careers", link: "/careers" },
@@ -222,40 +220,28 @@ const DropdownArrowIcon = memo(({ direction }) => (
   />
 ));
 
-// --- GENERIC MegaMenuContent Component ---
 const MegaMenuContent = memo(
-  // activeTopLevelItemId is used as a dependency to ensure resets when switching mega-menus
   ({ onLinkClick, menuItems, activeTopLevelItemId }) => {
-    // Helper to find the first item with children in a given menu structure
     const getInitialActiveMainItem = useCallback((items) => {
       return items.find((item) => item.children && item.children.length > 0);
     }, []);
 
-    // State for the currently active item in the *main column* of the mega-menu
     const [activeMainItemId, setActiveMainItemId] = useState(() => {
-      // Initialize with the first item that has children from the initial `menuItems` prop
       const initialItem = getInitialActiveMainItem(menuItems);
       return initialItem ? initialItem.id : null;
     });
 
-    // Effect to reset activeMainItemId whenever menuItems prop changes OR
-    // when the top-level active dropdown ID changes (signaling a switch between mega-menus)
     useEffect(() => {
       const initialItem = getInitialActiveMainItem(menuItems);
       setActiveMainItemId(initialItem ? initialItem.id : null);
     }, [menuItems, getInitialActiveMainItem, activeTopLevelItemId]); // Crucial dependencies
 
-    // Handlers for hover on main column items
     const handleMainItemHover = useCallback((itemId) => {
       setActiveMainItemId(itemId);
     }, []);
 
-    const handleMainItemLeave = useCallback(() => {
-      // In a mega-menu, you generally keep the last hovered item's sub-menu open
-      // until the entire mega-menu loses focus. This is why it's empty.
-    }, []);
+    const handleMainItemLeave = useCallback(() => {}, []);
 
-    // Determine the data for the sub-column based on the active main item
     const currentActiveMainItem = menuItems.find(
       (item) => item.id === activeMainItemId
     );
@@ -265,11 +251,7 @@ const MegaMenuContent = memo(
 
     return (
       <div className="mega-menu-content">
-        {" "}
-        {/* Ensure this class is in your SCSS */}
         <div className="main-column">
-          {" "}
-          {/* Ensure this class is in your SCSS */}
           <ul className="category-links">
             {menuItems.map((item) => (
               <li
@@ -280,7 +262,6 @@ const MegaMenuContent = memo(
               >
                 <Link to={item.link} onClick={onLinkClick}>
                   {item.label}
-                  {/* Show arrow if this main item has children to display in the sub-column */}
                   {item.children && item.children.length > 0 && (
                     <DropdownArrowIcon direction="right" />
                   )}
@@ -289,11 +270,8 @@ const MegaMenuContent = memo(
             ))}
           </ul>
         </div>
-        {/* Render sub-column only if there's data */}
         {currentSubColumnData && currentSubColumnData.length > 0 && (
           <div className="sub-column">
-            {" "}
-            {/* Ensure this class is in your SCSS */}
             <ul className="category-links">
               {currentSubColumnData.map((subItem) => (
                 <li key={subItem.id}>
@@ -310,18 +288,12 @@ const MegaMenuContent = memo(
   }
 );
 
-// Function to determine if a menu item is active based on current path and active dropdown
 const isPathActive = (menuItem, currentPath, activeDesktopDropdownId) => {
-  // A top-level dropdown item is considered active if its dropdown is open
-  // OR if any of its contained links match the current path.
   if (menuItem.hasDropdown) {
-    // If this specific top-level dropdown item's dropdown is active, it's active.
     if (activeDesktopDropdownId === menuItem.id) {
       return true;
     }
 
-    // Check if any link within the dropdown's menuData or submenu matches the current path.
-    // Prioritize menuData for top-level items, then children for nested items.
     const childrenData = menuItem.menuData || menuItem.children || [];
     const isAnyChildLinkActive = childrenData.some((child) =>
       isPathActive(child, currentPath, activeDesktopDropdownId)
@@ -332,7 +304,6 @@ const isPathActive = (menuItem, currentPath, activeDesktopDropdownId) => {
     }
   }
 
-  // Standard link check
   if (menuItem.link === currentPath) {
     return true;
   }
@@ -340,7 +311,6 @@ const isPathActive = (menuItem, currentPath, activeDesktopDropdownId) => {
   return false;
 };
 
-// MenuItem Component (handles individual menu items and their dropdowns)
 const MenuItem = memo(
   ({
     item,
@@ -349,25 +319,22 @@ const MenuItem = memo(
     isMobileView,
     isParentMenuOpen,
     activeDesktopDropdownId,
-    isTopLevel = false, // True for main navigation items
+    isTopLevel = false,
   }) => {
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 
-    // An item has a dropdown if explicitly set or if it has children in its unified data
     const hasDropdown =
       item.hasDropdown ||
       (item.children && item.children.length > 0) ||
       (item.menuData && item.menuData.length > 0);
     const isActive = isPathActive(item, currentPath, activeDesktopDropdownId);
 
-    // Effect to close mobile submenu if the main mobile menu closes
     useEffect(() => {
       if (isMobileView && !isParentMenuOpen && isSubmenuOpen) {
         setIsSubmenuOpen(false);
       }
     }, [isMobileView, isParentMenuOpen, isSubmenuOpen]);
 
-    // Effect to control desktop dropdown state based on Header's activeDesktopDropdownId
     useEffect(() => {
       if (!isMobileView && hasDropdown && isTopLevel) {
         setIsSubmenuOpen(activeDesktopDropdownId === item.id);
@@ -380,17 +347,15 @@ const MenuItem = memo(
       isTopLevel,
     ]);
 
-    // Handler for clicks on menu items
     const handleItemClick = useCallback(
       (e) => {
-        e.stopPropagation(); // Prevent event bubbling up
+        e.stopPropagation();
 
         if (hasDropdown) {
           const newSubmenuOpenState = !isSubmenuOpen;
           setIsSubmenuOpen(newSubmenuOpenState);
 
           if (!isMobileView && isTopLevel) {
-            // Inform parent Header about desktop dropdown toggle
             onMenuAction({
               type: "dropdownToggle",
               itemId: item.id,
@@ -398,7 +363,6 @@ const MenuItem = memo(
             });
           }
         } else {
-          // If it's a regular link, trigger action to close all menus
           onMenuAction({ type: "linkClick" });
         }
       },
@@ -430,7 +394,7 @@ const MenuItem = memo(
                   isMobileView={isMobileView}
                   isParentMenuOpen={isParentMenuOpen}
                   activeDesktopDropdownId={activeDesktopDropdownId}
-                  isTopLevel={false} 
+                  isTopLevel={false}
                 />
               ))}
             </ul>
@@ -490,15 +454,14 @@ const MenuItem = memo(
         } ${shouldBeOpen ? "open" : ""}`}
         data-item-id={item.id}
       >
-        {/* Render as a link that can also toggle dropdowns */}
         {hasDropdown ? (
           <Link
-            to={item.link || "#"} // Use '#' if it's primarily a dropdown toggle
+            to={item.link || "#"}
             className="nav-link"
             onClick={handleItemClick}
           >
             {item.label}
-            <DropdownArrowIcon /> {/* Always show arrow for dropdowns */}
+            <DropdownArrowIcon />
           </Link>
         ) : (
           <Link to={item.link} className="nav-link" onClick={handleItemClick}>
@@ -512,40 +475,34 @@ const MenuItem = memo(
   }
 );
 
-// --- Header Component (main component) ---
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Controls mobile sidebar visibility
-  const [activeDesktopDropdownId, setActiveDesktopDropdownId] = useState(null); // Tracks which top-level desktop dropdown is open
-  const [isMobileView, setIsMobileView] = useState(false); // Tracks current view (mobile/desktop)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDesktopDropdownId, setActiveDesktopDropdownId] = useState(null);
+  const [isMobileView, setIsMobileView] = useState(false);
 
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // Effect to determine mobile view and handle resize
   useEffect(() => {
     const handleResize = () => {
-      const newIsMobileView = window.innerWidth <= 992; // Your mobile breakpoint
+      const newIsMobileView = window.innerWidth <= 992;
       if (newIsMobileView !== isMobileView) {
         setIsMobileView(newIsMobileView);
-        // If transitioning from mobile to desktop, close the mobile menu
         if (!newIsMobileView && isMenuOpen) {
           setIsMenuOpen(false);
         }
-        // If transitioning from desktop to mobile, close any desktop dropdowns
         if (newIsMobileView && activeDesktopDropdownId) {
           setActiveDesktopDropdownId(null);
         }
       }
     };
 
-    // Initial check on mount
     setIsMobileView(window.innerWidth <= 992);
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [isMobileView, isMenuOpen, activeDesktopDropdownId]); // Include activeDesktopDropdownId to react to changes
+  }, [isMobileView, isMenuOpen, activeDesktopDropdownId]);
 
-  // Effect to manage body overflow when mobile menu is active
   useEffect(() => {
     if (isMenuOpen) {
       document.body.classList.add("mobile-menu-active");
@@ -557,20 +514,17 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
-  // Callback for actions triggered by MenuItem (link click, dropdown toggle)
   const handleMenuAction = useCallback(
     ({ type, itemId, shouldOpen }) => {
       if (type === "linkClick") {
         if (isMenuOpen) {
-          setIsMenuOpen(false); // Close mobile menu
+          setIsMenuOpen(false);
         }
         if (!isMobileView && activeDesktopDropdownId) {
-          setActiveDesktopDropdownId(null); // Close desktop dropdowns
+          setActiveDesktopDropdownId(null);
         }
       } else if (type === "dropdownToggle") {
         if (!isMobileView) {
-          // If the clicked item is already open, close it. Otherwise, open it.
-          // This handles closing other dropdowns implicitly by setting null.
           setActiveDesktopDropdownId(shouldOpen ? itemId : null);
         }
       }
@@ -578,10 +532,8 @@ export default function Header() {
     [isMenuOpen, isMobileView, activeDesktopDropdownId]
   );
 
-  // Toggle mobile sidebar open/close state
   const toggleMobileSidebar = useCallback(() => {
     setIsMenuOpen((prev) => {
-      // If opening mobile menu, ensure desktop dropdowns are closed
       if (!prev && activeDesktopDropdownId) {
         setActiveDesktopDropdownId(null);
       }
@@ -589,11 +541,9 @@ export default function Header() {
     });
   }, [activeDesktopDropdownId]);
 
-  // Effect to handle clicks outside the navbar to close desktop dropdowns
   useEffect(() => {
     const handleOutsideClick = (event) => {
       const navbar = document.querySelector(".nav-item");
-      // Close dropdown if click is outside the navbar, a desktop dropdown is open, and it's desktop view
       if (
         navbar &&
         !navbar.contains(event.target) &&
@@ -604,7 +554,6 @@ export default function Header() {
       }
     };
 
-    // Add/remove event listener based on dropdown state and view type
     if (activeDesktopDropdownId && !isMobileView) {
       document.addEventListener("click", handleOutsideClick);
     } else {
@@ -633,7 +582,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* This div seems empty and might be redundant depending on its purpose in CSS */}
       <div></div>
 
       <nav className="navbar">
@@ -667,13 +615,12 @@ export default function Header() {
                 isMobileView={isMobileView}
                 activeDesktopDropdownId={activeDesktopDropdownId}
                 isParentMenuOpen={isMenuOpen}
-                isTopLevel={true} // Mark as top-level menu item
+                isTopLevel={true}
               />
             ))}
           </ul>
         </div>
 
-        {/* Hamburger icon for mobile view when menu is closed */}
         {!isMenuOpen && (
           <button
             className="mobile-menu-toggle"
