@@ -1,204 +1,186 @@
-import "../styles/header.scss";
+import "../styles/header.scss"; // Ensure this path is correct
 import React, { Fragment, useState, useEffect, useCallback, memo } from "react";
 import { useLocation, Link } from "react-router-dom";
 
-const productsMegaMenuDesktopData = {
-  mainCategories: [
-    {
-      id: "motor-insurance",
-      label: "Motor Insurance",
-      link: "/product",
-    },
-    {
-      id: "life-insurance",
-      label: "Life Insurance",
-      link: "/product",
-    },
-    {
-      id: "health-insurance",
-      label: "Health Insurance",
-      link: "/product",
-    },
-    {
-      id: "travel-insurance",
-      label: "Travel Insurance",
-      link: "/product",
-    },
-    {
-      id: "other-categories",
-      label: "Other Categories Insurance",
-      link: "/product",
-    },
-  ],
+// --- UNIFIED Data Structures for Products and Renew ---
+// Each item has 'id', 'label', 'link', and optionally 'children' for nested items.
+// This is the single source of truth for the *content* of these menus.
 
-  motorInsuranceSubColumnItems: [
-    {
-      id: "goods-carrying",
-      label: "Goods Carrying Vehicle Insurance",
-      link: "/product",
-    },
-    {
-      id: "passenger-carrying",
-      label: "Passenger Carrying Vehicle Insurance",
-      link: "/product",
-    },
-    {
-      id: "car-insurance",
-      label: "Car Insurance",
-      link: "/product",
-    },
-    {
-      id: "bike-insurance",
-      label: "Bike Insurance",
-      link: "/product",
-    },
-    {
-      id: "electric-car-insurance",
-      label: "Electric Car Insurance",
-      link: "/product",
-    },
-    {
-      id: "electric-bike-insurance",
-      label: "Electric Bike Insurance",
-      link: "/product",
-    },
-    {
-      id: "marine-insurance",
-      label: "Marine Insurance",
-      link: "/product",
-    },
-    {
-      id: "aviation-insurance",
-      label: "Aviation Insurance",
-      link: "/product",
-    },
-  ],
-};
-
-const productsMobileMenuData = [
+const productsMenuData = [
   {
-    id: "motor-insurance-mobile",
+    id: "motor-insurance",
     label: "Motor Insurance",
-    hasDropdown: true,
-    submenu: [
+    link: "/product/motor",
+    children: [
       {
         id: "goods-carrying",
         label: "Goods-carrying vehicle Insurance",
-        link: "/product",
+        link: "/product/motor/goods-carrying",
       },
       {
         id: "passenger-carrying",
         label: "Passenger-carrying vehicle Insurance",
-        link: "/product",
+        link: "/product/motor/passenger-carrying",
       },
       {
         id: "car-insurance",
         label: "Car Insurance",
-        link: "/product",
+        link: "/product/motor/car",
       },
       {
         id: "bike-insurance",
         label: "Bike Insurance",
-        link: "/product",
+        link: "/product/motor/bike",
       },
       {
         id: "electric-car-insurance",
         label: "Electric Car Insurance",
-        link: "/product",
+        link: "/product/motor/electric-car",
       },
       {
         id: "electric-bike-insurance",
         label: "Electric Bike Insurance",
-        link: "/product",
+        link: "/product/motor/electric-bike",
       },
       {
         id: "marine-insurance",
         label: "Marine Insurance",
-        link: "/product",
+        link: "/product/motor/marine",
       },
       {
         id: "aviation-insurance",
         label: "Aviation Insurance",
-        link: "/product",
+        link: "/product/motor/aviation",
       },
     ],
   },
   {
     id: "life-insurance",
     label: "Life Insurance",
-    link: "/product",
+    link: "/product/life",
+    children: [], // No sub-items
+  },
+  {
+    id: "health-insurance",
+    label: "Health Insurance",
+    link: "/product/health",
+    children: [],
+  },
+  {
+    id: "travel-insurance",
+    label: "Travel Insurance",
+    link: "/product/travel",
+    children: [],
   },
   {
     id: "other-categories",
-    label: "Other Categories",
-    hasDropdown: true,
-    submenu: [
+    label: "Other Categories Insurance",
+    link: "/product/other",
+    children: [
       {
-        id: "home-insurence",
+        id: "home-insurance",
         label: "Home Insurance",
-        link: "#",
+        link: "/product/other/home",
       },
       {
-        id: "business-insurence",
+        id: "business-insurance",
         label: "Business Insurance",
-        link: "#",
+        link: "/product/other/business",
       },
       {
-        id: "travel-insurence",
-        label: "Travel Insurance",
-        link: "#",
-      },
-      {
-        id: "health-insurence",
-        label: "Health Insurance",
-        link: "#",
-      },
-      {
-        id: "personal-accident-insurence",
+        id: "personal-accident",
         label: "Personal Accident Insurance",
-        link: "#",
+        link: "/product/other/personal-accident",
       },
       {
-        id: "public-liability-insurance",
-        label: "Public Liability Insurance ",
-        link: "#",
+        id: "public-liability",
+        label: "Public Liability Insurance",
+        link: "/product/other/public-liability",
       },
       {
-        id: "fidelity-guarantee-insurance",
+        id: "fidelity-guarantee",
         label: "Fidelity Guarantee Insurance",
-        link: "#",
+        link: "/product/other/fidelity-guarantee",
       },
-         {
-        id: "cyber-crime-insurance",
+      {
+        id: "cyber-crime",
         label: "Cyber Crime Insurance",
-        link: "#",
+        link: "/product/other/cyber-crime",
       },
     ],
   },
 ];
 
+const renewMenuData = [
+  {
+    id: "motor-policy",
+    label: "Motor Policy",
+    link: "/renew/motor",
+    children: [
+      {
+        id: "renew-car",
+        label: "Renew Car Insurance",
+        link: "/renew/motor/car",
+      },
+      {
+        id: "renew-bike",
+        label: "Renew Bike Insurance",
+        link: "/renew/motor/bike",
+      },
+    ],
+  },
+  {
+    id: "health-policy",
+    label: "Health Policy",
+    link: "/renew/health",
+    children: [],
+  },
+  {
+    id: "travel-policy",
+    label: "Travel Policy",
+    link: "/renew/travel",
+    children: [],
+  },
+  {
+    id: "fire-policy",
+    label: "Fire Policy",
+    link: "/renew/fire",
+    children: [],
+  },
+];
+
+// Main menu items data (references the unified data structures)
 const menuItemsData = [
   {
     id: "products",
     label: "Products",
     hasDropdown: true,
-    type: "mega-menu",
-    mobileSubmenu: productsMobileMenuData,
+    type: "mega-menu", // Indicates it should use the mega-menu layout for desktop
+    menuData: productsMenuData, // Unified data source for products
   },
-  { id: "renew", label: "Renew", link: "/renew" },
-  { id: "claims", label: "Claims", link: "/claims" },
+  {
+    id: "renew",
+    label: "Renew",
+    hasDropdown: true,
+    type: "mega-menu", // Assuming renew also needs a mega-menu like layout
+    menuData: renewMenuData, // Unified data source for renew
+  },
+  { id: "claims", label: "Claims", link: "/claims", children: [] }, // Even non-dropdowns can have empty children for consistency
   {
     id: "about",
     label: "About us",
     hasDropdown: true,
-    submenu: [
+    type: "standard-dropdown", // Explicitly define as a standard dropdown
+    menuData: [
+      // Inline data for simple standard dropdown
       { id: "our-story", label: "Our Story", link: "/about" },
       { id: "careers", label: "Careers", link: "/careers" },
     ],
   },
-  { id: "support", label: "Support", link: "/support" },
+  { id: "support", label: "Support", link: "/support", children: [] },
 ];
 
+// Reusable Icon Components (memoized for performance)
 const HamburgerIcon = memo(() => (
   <svg
     width="24"
@@ -237,7 +219,7 @@ const CloseIcon = memo(() => (
 
 const DropdownArrowIcon = memo(({ direction }) => (
   <img
-    src="./assets/images/arrow_down.png"
+    src="./assets/images/arrow_down.png" // Ensure this path is correct for your project
     alt="dropdown arrow"
     className="arrow-icon"
     style={{
@@ -246,96 +228,125 @@ const DropdownArrowIcon = memo(({ direction }) => (
   />
 ));
 
-const ProductsMegaMenuContent = memo(({ onLinkClick, currentPath }) => {
-  const [activeSubColumn, setActiveSubColumn] = useState(
-    "motor-insurance-subcolumn"
-  );
+// --- GENERIC MegaMenuContent Component ---
+const MegaMenuContent = memo(
+  // activeTopLevelItemId is used as a dependency to ensure resets when switching mega-menus
+  ({ onLinkClick, menuItems, activeTopLevelItemId }) => {
+    // Helper to find the first item with children in a given menu structure
+    const getInitialActiveMainItem = useCallback((items) => {
+      return items.find((item) => item.children && item.children.length > 0);
+    }, []);
 
-  useEffect(() => {
-    if (currentPath.startsWith("/products/motor-insurance")) {
-      setActiveSubColumn("motor-insurance-subcolumn");
-    } else {
-      setActiveSubColumn("motor-insurance-subcolumn");
-    }
-  }, [currentPath]);
+    // State for the currently active item in the *main column* of the mega-menu
+    const [activeMainItemId, setActiveMainItemId] = useState(() => {
+      // Initialize with the first item that has children from the initial `menuItems` prop
+      const initialItem = getInitialActiveMainItem(menuItems);
+      return initialItem ? initialItem.id : null;
+    });
 
-  const handleCategoryHover = useCallback((categoryId) => {
-    if (categoryId === "motor-insurance") {
-      setActiveSubColumn("motor-insurance-subcolumn");
-    } else {
-      setActiveSubColumn(null);
-    }
-  }, []);
+    // Effect to reset activeMainItemId whenever menuItems prop changes OR
+    // when the top-level active dropdown ID changes (signaling a switch between mega-menus)
+    useEffect(() => {
+      const initialItem = getInitialActiveMainItem(menuItems);
+      setActiveMainItemId(initialItem ? initialItem.id : null);
+    }, [menuItems, getInitialActiveMainItem, activeTopLevelItemId]); // Crucial dependencies
 
-  const handleCategoryLeave = useCallback(() => {}, []);
+    // Handlers for hover on main column items
+    const handleMainItemHover = useCallback((itemId) => {
+      setActiveMainItemId(itemId);
+    }, []);
 
-  return (
-    <div className="products-mega-menu-content">
-      <div className="products-main-column">
-        <ul className="category-links">
-          {productsMegaMenuDesktopData.mainCategories.map((item) => (
-            <li
-              key={item.id}
-              className={
-                item.id === "motor-insurance" &&
-                activeSubColumn === "motor-insurance-subcolumn"
-                  ? "active-nested"
-                  : ""
-              }
-              onMouseEnter={() => handleCategoryHover(item.id)}
-              onMouseLeave={handleCategoryLeave}
-            >
-              <Link to={item.link} onClick={onLinkClick}>
-                {item.label}
-                {item.id === "motor-insurance" && (
-                  <DropdownArrowIcon direction="right" />
-                )}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+    const handleMainItemLeave = useCallback(() => {
+      // In a mega-menu, you generally keep the last hovered item's sub-menu open
+      // until the entire mega-menu loses focus. This is why it's empty.
+    }, []);
 
-      {activeSubColumn === "motor-insurance-subcolumn" && (
-        <div className="products-sub-column">
+    // Determine the data for the sub-column based on the active main item
+    const currentActiveMainItem = menuItems.find(
+      (item) => item.id === activeMainItemId
+    );
+    const currentSubColumnData = currentActiveMainItem
+      ? currentActiveMainItem.children
+      : [];
+
+    return (
+      <div className="mega-menu-content">
+        {" "}
+        {/* Ensure this class is in your SCSS */}
+        <div className="main-column">
+          {" "}
+          {/* Ensure this class is in your SCSS */}
           <ul className="category-links">
-            {productsMegaMenuDesktopData.motorInsuranceSubColumnItems.map(
-              (subItem) => (
+            {menuItems.map((item) => (
+              <li
+                key={item.id}
+                className={item.id === activeMainItemId ? "active-nested" : ""}
+                onMouseEnter={() => handleMainItemHover(item.id)}
+                onMouseLeave={handleMainItemLeave}
+              >
+                <Link to={item.link} onClick={onLinkClick}>
+                  {item.label}
+                  {/* Show arrow if this main item has children to display in the sub-column */}
+                  {item.children && item.children.length > 0 && (
+                    <DropdownArrowIcon direction="right" />
+                  )}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* Render sub-column only if there's data */}
+        {currentSubColumnData && currentSubColumnData.length > 0 && (
+          <div className="sub-column">
+            {" "}
+            {/* Ensure this class is in your SCSS */}
+            <ul className="category-links">
+              {currentSubColumnData.map((subItem) => (
                 <li key={subItem.id}>
                   <Link to={subItem.link} onClick={onLinkClick}>
                     {subItem.label}
                   </Link>
                 </li>
-              )
-            )}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-});
-
-const isPathActive = (menuItem, currentPath) => {
-  if (menuItem.type === "mega-menu" && currentPath.startsWith("/products")) {
-    return true;
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    );
   }
+);
+
+// Function to determine if a menu item is active based on current path and active dropdown
+const isPathActive = (menuItem, currentPath, activeDesktopDropdownId) => {
+  // A top-level dropdown item is considered active if its dropdown is open
+  // OR if any of its contained links match the current path.
+  if (menuItem.hasDropdown) {
+    // If this specific top-level dropdown item's dropdown is active, it's active.
+    if (activeDesktopDropdownId === menuItem.id) {
+      return true;
+    }
+
+    // Check if any link within the dropdown's menuData or submenu matches the current path.
+    // Prioritize menuData for top-level items, then children for nested items.
+    const childrenData = menuItem.menuData || menuItem.children || [];
+    const isAnyChildLinkActive = childrenData.some((child) =>
+      isPathActive(child, currentPath, activeDesktopDropdownId)
+    );
+
+    if (isAnyChildLinkActive) {
+      return true;
+    }
+  }
+
+  // Standard link check
   if (menuItem.link === currentPath) {
     return true;
   }
-  if (menuItem.submenu) {
-    return menuItem.submenu.some((subItem) =>
-      isPathActive(subItem, currentPath)
-    );
-  }
 
-  if (menuItem.mobileSubmenu && menuItem.type === "mega-menu") {
-    return menuItem.mobileSubmenu.some((subItem) =>
-      isPathActive(subItem, currentPath)
-    );
-  }
   return false;
 };
 
+// MenuItem Component (handles individual menu items and their dropdowns)
 const MenuItem = memo(
   ({
     item,
@@ -344,24 +355,28 @@ const MenuItem = memo(
     isMobileView,
     isParentMenuOpen,
     activeDesktopDropdownId,
-    isTopLevel = false,
+    isTopLevel = false, // True for main navigation items
   }) => {
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 
-    const hasDropdown = item.hasDropdown;
-    const isActive = isPathActive(item, currentPath);
+    // An item has a dropdown if explicitly set or if it has children in its unified data
+    const hasDropdown =
+      item.hasDropdown ||
+      (item.children && item.children.length > 0) ||
+      (item.menuData && item.menuData.length > 0);
+    const isActive = isPathActive(item, currentPath, activeDesktopDropdownId);
 
+    // Effect to close mobile submenu if the main mobile menu closes
     useEffect(() => {
       if (isMobileView && !isParentMenuOpen && isSubmenuOpen) {
         setIsSubmenuOpen(false);
       }
     }, [isMobileView, isParentMenuOpen, isSubmenuOpen]);
 
+    // Effect to control desktop dropdown state based on Header's activeDesktopDropdownId
     useEffect(() => {
-      if (!isMobileView && hasDropdown) {
-        if (isTopLevel) {
-          setIsSubmenuOpen(activeDesktopDropdownId === item.id);
-        }
+      if (!isMobileView && hasDropdown && isTopLevel) {
+        setIsSubmenuOpen(activeDesktopDropdownId === item.id);
       }
     }, [
       isMobileView,
@@ -369,18 +384,19 @@ const MenuItem = memo(
       activeDesktopDropdownId,
       item.id,
       isTopLevel,
-      isSubmenuOpen,
     ]);
 
+    // Handler for clicks on menu items
     const handleItemClick = useCallback(
       (e) => {
-        e.stopPropagation();
+        e.stopPropagation(); // Prevent event bubbling up
 
         if (hasDropdown) {
           const newSubmenuOpenState = !isSubmenuOpen;
           setIsSubmenuOpen(newSubmenuOpenState);
 
           if (!isMobileView && isTopLevel) {
+            // Inform parent Header about desktop dropdown toggle
             onMenuAction({
               type: "dropdownToggle",
               itemId: item.id,
@@ -388,6 +404,7 @@ const MenuItem = memo(
             });
           }
         } else {
+          // If it's a regular link, trigger action to close all menus
           onMenuAction({ type: "linkClick" });
         }
       },
@@ -403,6 +420,75 @@ const MenuItem = memo(
 
     const shouldBeOpen = isSubmenuOpen;
 
+    let dropdownContent = null;
+    if (hasDropdown && shouldBeOpen) {
+      if (isMobileView) {
+        const childrenToRender = item.menuData || item.children || [];
+        if (childrenToRender.length > 0) {
+          dropdownContent = (
+            <ul className="submenu-list">
+              {childrenToRender.map((subItem) => (
+                <MenuItem
+                  key={subItem.id}
+                  item={subItem}
+                  currentPath={currentPath}
+                  onMenuAction={onMenuAction}
+                  isMobileView={isMobileView}
+                  isParentMenuOpen={isParentMenuOpen}
+                  activeDesktopDropdownId={activeDesktopDropdownId}
+                  isTopLevel={false} 
+                />
+              ))}
+            </ul>
+          );
+        }
+      } else {
+        if (item.type === "mega-menu" && item.menuData) {
+          dropdownContent = (
+            <MegaMenuContent
+              onLinkClick={() => onMenuAction({ type: "linkClick" })}
+              activeTopLevelItemId={activeDesktopDropdownId}
+              menuItems={item.menuData}
+            />
+          );
+        } else if (item.type === "standard-dropdown" && item.menuData) {
+          dropdownContent = (
+            <ul className="submenu-list">
+              {item.menuData.map((subItem) => (
+                <MenuItem
+                  key={subItem.id}
+                  item={subItem}
+                  currentPath={currentPath}
+                  onMenuAction={onMenuAction}
+                  isMobileView={isMobileView}
+                  isParentMenuOpen={isParentMenuOpen}
+                  activeDesktopDropdownId={activeDesktopDropdownId}
+                  isTopLevel={false}
+                />
+              ))}
+            </ul>
+          );
+        } else if (item.children && item.children.length > 0) {
+          dropdownContent = (
+            <ul className="submenu-list">
+              {item.children.map((subItem) => (
+                <MenuItem
+                  key={subItem.id}
+                  item={subItem}
+                  currentPath={currentPath}
+                  onMenuAction={onMenuAction}
+                  isMobileView={isMobileView}
+                  isParentMenuOpen={isParentMenuOpen}
+                  activeDesktopDropdownId={activeDesktopDropdownId}
+                  isTopLevel={false}
+                />
+              ))}
+            </ul>
+          );
+        }
+      }
+    }
+
     return (
       <li
         className={`nav-item ${hasDropdown ? "has-submenu" : ""} ${
@@ -410,14 +496,15 @@ const MenuItem = memo(
         } ${shouldBeOpen ? "open" : ""}`}
         data-item-id={item.id}
       >
+        {/* Render as a link that can also toggle dropdowns */}
         {hasDropdown ? (
           <Link
-            to={item.link || "#"}
+            to={item.link || "#"} // Use '#' if it's primarily a dropdown toggle
             className="nav-link"
             onClick={handleItemClick}
           >
             {item.label}
-            <DropdownArrowIcon />
+            <DropdownArrowIcon /> {/* Always show arrow for dropdowns */}
           </Link>
         ) : (
           <Link to={item.link} className="nav-link" onClick={handleItemClick}>
@@ -425,107 +512,71 @@ const MenuItem = memo(
           </Link>
         )}
 
-        {hasDropdown &&
-          shouldBeOpen &&
-          (isMobileView ? (
-            item.type === "mega-menu" && item.mobileSubmenu ? (
-              <ul className="submenu-list">
-                {item.mobileSubmenu.map((subItem) => (
-                  <MenuItem
-                    key={subItem.id}
-                    item={subItem}
-                    currentPath={currentPath}
-                    onMenuAction={onMenuAction}
-                    isMobileView={isMobileView}
-                    isParentMenuOpen={isParentMenuOpen}
-                    activeDesktopDropdownId={activeDesktopDropdownId}
-                    isTopLevel={false}
-                  />
-                ))}
-              </ul>
-            ) : (
-              item.submenu && (
-                <ul className="submenu-list">
-                  {item.submenu.map((subItem) => (
-                    <MenuItem
-                      key={subItem.id}
-                      item={subItem}
-                      currentPath={currentPath}
-                      onMenuAction={onMenuAction}
-                      isMobileView={isMobileView}
-                      isParentMenuOpen={isParentMenuOpen}
-                      activeDesktopDropdownId={activeDesktopDropdownId}
-                      isTopLevel={false}
-                    />
-                  ))}
-                </ul>
-              )
-            )
-          ) : item.type === "mega-menu" ? (
-            <ProductsMegaMenuContent
-              onLinkClick={() => onMenuAction({ type: "linkClick" })}
-              currentPath={currentPath}
-            />
-          ) : (
-            item.submenu && (
-              <ul className="submenu-list">
-                {item.submenu.map((subItem) => (
-                  <MenuItem
-                    key={subItem.id}
-                    item={subItem}
-                    currentPath={currentPath}
-                    onMenuAction={onMenuAction}
-                    isMobileView={isMobileView}
-                    isParentMenuOpen={isParentMenuOpen}
-                    activeDesktopDropdownId={activeDesktopDropdownId}
-                    isTopLevel={false}
-                  />
-                ))}
-              </ul>
-            )
-          ))}
+        {dropdownContent}
       </li>
     );
   }
 );
 
+// --- Header Component (main component) ---
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDesktopDropdownId, setActiveDesktopDropdownId] = useState(null);
-  const [isMobileView, setIsMobileView] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Controls mobile sidebar visibility
+  const [activeDesktopDropdownId, setActiveDesktopDropdownId] = useState(null); // Tracks which top-level desktop dropdown is open
+  const [isMobileView, setIsMobileView] = useState(false); // Tracks current view (mobile/desktop)
 
   const location = useLocation();
   const currentPath = location.pathname;
 
+  // Effect to determine mobile view and handle resize
   useEffect(() => {
     const handleResize = () => {
-      const newIsMobileView = window.innerWidth <= 992;
+      const newIsMobileView = window.innerWidth <= 992; // Your mobile breakpoint
       if (newIsMobileView !== isMobileView) {
         setIsMobileView(newIsMobileView);
-      }
-      if (!newIsMobileView) {
-        if (isMenuOpen) setIsMenuOpen(false);
+        // If transitioning from mobile to desktop, close the mobile menu
+        if (!newIsMobileView && isMenuOpen) {
+          setIsMenuOpen(false);
+        }
+        // If transitioning from desktop to mobile, close any desktop dropdowns
+        if (newIsMobileView && activeDesktopDropdownId) {
+          setActiveDesktopDropdownId(null);
+        }
       }
     };
 
-    // Initial check
+    // Initial check on mount
     setIsMobileView(window.innerWidth <= 992);
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [isMobileView, isMenuOpen]);
+  }, [isMobileView, isMenuOpen, activeDesktopDropdownId]); // Include activeDesktopDropdownId to react to changes
 
+  // Effect to manage body overflow when mobile menu is active
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add("mobile-menu-active");
+    } else {
+      document.body.classList.remove("mobile-menu-active");
+    }
+    return () => {
+      document.body.classList.remove("mobile-menu-active");
+    };
+  }, [isMenuOpen]);
+
+  // Callback for actions triggered by MenuItem (link click, dropdown toggle)
   const handleMenuAction = useCallback(
     ({ type, itemId, shouldOpen }) => {
       if (type === "linkClick") {
         if (isMenuOpen) {
-          setIsMenuOpen(false);
+          setIsMenuOpen(false); // Close mobile menu
         }
         if (!isMobileView && activeDesktopDropdownId) {
-          setActiveDesktopDropdownId(null);
+          setActiveDesktopDropdownId(null); // Close desktop dropdowns
         }
       } else if (type === "dropdownToggle") {
         if (!isMobileView) {
+          // If the clicked item is already open, close it. Otherwise, open it.
+          // This handles closing other dropdowns implicitly by setting null.
           setActiveDesktopDropdownId(shouldOpen ? itemId : null);
         }
       }
@@ -533,8 +584,10 @@ export default function Header() {
     [isMenuOpen, isMobileView, activeDesktopDropdownId]
   );
 
+  // Toggle mobile sidebar open/close state
   const toggleMobileSidebar = useCallback(() => {
     setIsMenuOpen((prev) => {
+      // If opening mobile menu, ensure desktop dropdowns are closed
       if (!prev && activeDesktopDropdownId) {
         setActiveDesktopDropdownId(null);
       }
@@ -542,9 +595,11 @@ export default function Header() {
     });
   }, [activeDesktopDropdownId]);
 
+  // Effect to handle clicks outside the navbar to close desktop dropdowns
   useEffect(() => {
     const handleOutsideClick = (event) => {
-      const navbar = document.querySelector(".navbar");
+      const navbar = document.querySelector(".nav-item");
+      // Close dropdown if click is outside the navbar, a desktop dropdown is open, and it's desktop view
       if (
         navbar &&
         !navbar.contains(event.target) &&
@@ -555,6 +610,7 @@ export default function Header() {
       }
     };
 
+    // Add/remove event listener based on dropdown state and view type
     if (activeDesktopDropdownId && !isMobileView) {
       document.addEventListener("click", handleOutsideClick);
     } else {
@@ -583,7 +639,9 @@ export default function Header() {
         </div>
       </div>
 
+      {/* This div seems empty and might be redundant depending on its purpose in CSS */}
       <div></div>
+
       <nav className="navbar">
         <div className="logo-wrapper">
           <Link to="/">
@@ -615,12 +673,13 @@ export default function Header() {
                 isMobileView={isMobileView}
                 activeDesktopDropdownId={activeDesktopDropdownId}
                 isParentMenuOpen={isMenuOpen}
-                isTopLevel={true}
+                isTopLevel={true} // Mark as top-level menu item
               />
             ))}
           </ul>
         </div>
 
+        {/* Hamburger icon for mobile view when menu is closed */}
         {!isMenuOpen && (
           <button
             className="mobile-menu-toggle"

@@ -43,14 +43,14 @@
     .divider {
       width: 80px;
       height: 4px;
-      background-color: #f7b731;
+      background-color: $color-brand-yellow;
       margin: 20px 0 30px;
     }
 
     p {
       font-size: 1rem;
       line-height: 1.8;
-      color: #555555;
+      color: $font-color;
       max-width: 550px;
     }
   }
