@@ -325,6 +325,7 @@ footer {
       gap: 20px;
     }
     @media (max-width: 525px) {
+      grid-template-columns: 1fr 1fr 1fr;
       .type-option {
         .icon-wrapper {
           width: 60px;
@@ -338,7 +339,7 @@ footer {
       }
     }
     @media (max-width: 446px) {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
     }
   }
 
