@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   border-bottom: 5px solid $color-brand-blue;
+  margin-bottom: 40px;
 
   .line_wrapper {
     height: 3px;
@@ -101,7 +102,7 @@
       }
     }
 
-    .hero_section_input {
+    .hero_section_input,select {
       padding: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
       border: none;
@@ -171,6 +172,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
+  margin-top: 20px;
 
   .main_heading_text {
     display: flex;

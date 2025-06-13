@@ -12,7 +12,7 @@ export default function Claims() {
           Commercial <br /> Vehicle
         </>
       ),
-      icon: "/assets/images/commerical_vical_icon.svg", 
+      icon: "/assets/images/commerical_vical_icon.svg",
     },
     {
       id: "car",
@@ -69,11 +69,28 @@ export default function Claims() {
         </div>
         <form className="insurance-form">
           <div className="form_input_wrapper">
-            <input
-              type="text"
-              className="hero_section_input"
-              placeholder="Enter Registration No.*"
-            />
+            {selectedType !== "other" ? (
+              <input
+                type="text"
+                className="hero_section_input"
+                placeholder="Enter Registration No.*"
+              />
+            ) : (
+              <select placeholder="Select Product Type">
+                <option>Select Product Type</option>
+                <option>Marine Insurance</option>
+                <option>Aviation Insurance</option>
+                <option>Home Insurance</option>
+                <option> Business Insurance</option>
+                <option>Travel Insurance</option>
+                <option>Health Insurance</option>
+                <option>Personal Accident Insurance</option>
+                <option>Public Liability Insurance</option>
+                <option> Fidelity Guarantee Insurance</option>
+                <option>Cyber Crime Insurance</option>
+                <option> Life Insurance</option>
+              </select>
+            )}
             <input
               type="text"
               className="hero_section_input"
