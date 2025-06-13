@@ -15,25 +15,25 @@ export default function Footer() {
         <div className="footer_link_wrapper">
           <div className="footer_head_link">Motor Insurance</div>
 
-          <div className="footer_link">Goods Carrying Vehicle Insurance</div>
-          <div className="footer_link">
+          <div className="footer_link" onClick={() => navigate("/product")}>Goods Carrying Vehicle Insurance</div>
+          <div className="footer_link" onClick={() => navigate("/product")}>
             Passenger Carrying Vehicle Insurance
           </div>
-          <div className="footer_link">Car Insurance</div>
-          <div className="footer_link">Bike Insurance</div>
-          <div className="footer_head_link">Marine & Aviation Insurance</div>
-          <div className="footer_head_link">Life Insurance</div>
+          <div className="footer_link" onClick={() => navigate("/product")}>Car Insurance</div>
+          <div className="footer_link" onClick={() => navigate("/product")}>Bike Insurance</div>
+          <div className="footer_head_link" onClick={() => navigate("/product")}>Marine & Aviation Insurance</div>
+          <div className="footer_head_link" onClick={() => navigate("/product")}>Life Insurance</div>
         </div>
         <div className="footer_link_wrapper">
           <div className="footer_head_link"> Other Categories</div>
 
-          <div className="footer_link">Home Insurance</div>
-          <div className="footer_link"> Business Insurance</div>
-          <div className="footer_link"> Health & Group Medical Insurance</div>
-          <div className="footer_link"> Personal Accident Insurance</div>
-          <div className="footer_link"> Public Liability Insurance</div>
-          <div className="footer_link"> Fidelity Guarantee Insurance</div>
-          <div className="footer_link"> Cyber Crime Insurance</div>
+          <div className="footer_link" onClick={() => navigate("/product")}>Home Insurance</div>
+          <div className="footer_link" onClick={() => navigate("/product")}> Business Insurance</div>
+          <div className="footer_link" onClick={() => navigate("/product")}> Health & Group Medical Insurance</div>
+          <div className="footer_link" onClick={() => navigate("/product")}> Personal Accident Insurance</div>
+          <div className="footer_link" onClick={() => navigate("/product")}> Public Liability Insurance</div>
+          <div className="footer_link" onClick={() => navigate("/product")}> Fidelity Guarantee Insurance</div>
+          <div className="footer_link" onClick={() => navigate("/product")}> Cyber Crime Insurance</div>
         </div>
         <div className="footer_link_wrapper">
           <div className="footer_head_link">Office Address</div>
