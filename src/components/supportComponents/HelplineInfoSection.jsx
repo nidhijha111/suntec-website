@@ -32,7 +32,7 @@ export default function HelplineInfoSection() {
       <div className="info-card-wrapper">
         <div className="info-heading-text"> Registered office address</div>
         <p>
-          B 206, nd Floor, Eastern Business District, Lal Bahadur Shastri Marg,
+          B 206, 2nd Floor, Eastern Business District, Lal Bahadur Shastri Marg,
           Bhandup West, Mumbai, Maharashtra 400078
         </p>
       </div>
