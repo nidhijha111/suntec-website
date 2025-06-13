@@ -51,7 +51,7 @@ export default function OurPatners() {
         <div>
           <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
-        <div>
+        <div className="center-last">
           <img src="./assets/images/lic_brand_logo.svg" alt="insurance icon" />
         </div>
       </div>
