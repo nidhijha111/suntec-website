@@ -33,7 +33,7 @@ export default function Renew() {
           <div className="contact-buttons">
             <button className="phone-button">
               <img src="./assets/images/phone_icon.png" alt="phone icon" />
-              <span>Toll Free 9810000000</span>
+              <span>Toll Free 98100 00000</span>
             </button>
             <button className="email-button">
               <img
