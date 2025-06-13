@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/support.scss";
 import SupportForm from "../components/supportComponents/SupportForm";
 import HelplineInfoSection from "../components/supportComponents/HelplineInfoSection";
+import BottomTopScrollSection from "../components/bottomTopScrollSection";
 
 export default function Support() {
   return (
@@ -26,6 +27,7 @@ export default function Support() {
         <SupportForm />
         <HelplineInfoSection />
       </section>
+      <BottomTopScrollSection />
     </div>
   );
 }
