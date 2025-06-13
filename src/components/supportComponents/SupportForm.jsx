@@ -1,32 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/support.scss";
 
 export default function SupportForm() {
+  const [selectQueryValue, setSelectQueryValue] = useState();
   return (
     <form className="form-wrapper-section">
       <div className="form-wrapper">
         <label>Name*</label>
-        <input />
+        <input placeholder="Name your Enter" />
       </div>
       <div className="form-wrapper">
         <label> Mobile No *</label>
-        <input />
+        <input placeholder="Enter your Mobile No." />
       </div>
-      <div className="form-wrapper"s>
+      <div className="form-wrapper">
         <label> Email*</label>
-        <input />
+        <input placeholder="Enter your Email Address" />
       </div>
-      <div className="form-wrapper" >
+      <div className="form-wrapper">
         <label> Subject*</label>
-        <input />
+        <select
+          placeholder="Select query"
+          onChange={(e) => setSelectQueryValue(e.target.value)}
+        >
+          <option value={""}>Select query</option>
+          <option value={"Product query"}> Product query</option>
+          <option value={"Renewals"}>Renewals</option>
+          <option value={"Claims"}>Claims</option>
+          <option value={"Grievance"}>Grievance</option>
+          <option value={"Others"}>Others</option>
+        </select>
       </div>
       <div className="form-wrapper">
         <label> Product</label>
-        <input />
+        <select placeholder="Select Product type" disabled={selectQueryValue !== 'Product query'}>
+          <option>Select Product type</option>
+          <option>Road Insurance</option>
+          <option> Marine Insurance</option>
+          <option> Aviation Insurance</option>
+          <option> Home Insurance</option>
+          <option>Business Insurance</option>
+          <option> Travel Insurance</option>
+          <option> Health Insurance</option>
+          <option>Personal Accident Insurance</option>
+          <option> Public Liability Insurance</option>
+          <option>Fidelity Guarantee Insurance</option>
+          <option> Cyber Crime Insurance</option>
+          <option>Life Insurance </option>
+        </select>
       </div>
       <div className="form-wrapper">
         <label> Comments</label>
-        <textarea rows="4"></textarea>
+        <textarea rows="7"></textarea>
       </div>
       <button className="submit_button">submit</button>
     </form>

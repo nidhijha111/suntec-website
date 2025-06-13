@@ -87,13 +87,20 @@
         color: $color-brand-yellow;
       }
 
-      input {
+      input,
+      select {
         padding: 10px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
         border: none;
         height: 45px;
         background: $color-whitish;
         width: 100%;
+
+        &:disabled {
+          cursor: not-allowed;
+          background-color: $color-creamish;
+          opacity: 1;
+        }
       }
 
       textarea {
@@ -191,6 +198,11 @@
         .contact-info-text {
           gap: 5px;
           font-size: 13px;
+
+          img{
+            width: 18px;
+            height: 18px;
+          }
         }
       }
       .location-info-cards {
@@ -198,7 +210,7 @@
           font-size: 20px;
         }
         .location-items {
-            flex-direction: column;
+          flex-direction: column;
         }
       }
     }
