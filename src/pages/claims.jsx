@@ -48,7 +48,7 @@ export default function Claims() {
       <div className="claim_settalement_section">
         <div className="main_heading_text">
           <div className="blue">Facilitating faster</div>
-          <div className="yellow">settlements claim</div>
+          <div className="yellow">claim settlements</div>
         </div>
         <div className="line_wrapper"></div>
         <div className="insurance-types">
@@ -125,7 +125,7 @@ export default function Claims() {
           </button>
           <button className="phone-button">
             <img src="./assets/images/phone_icon.png" alt="phone icon" />
-            <span>Toll Free 9810000000</span>
+            <span>Toll Free 98100 00000</span>
           </button>
           <button className="email-button">
             <img

@@ -481,6 +481,7 @@ export default function Header() {
   const [isMobileView, setIsMobileView] = useState(false);
 
   const location = useLocation();
+  
   const currentPath = location.pathname;
 
   useEffect(() => {
@@ -564,6 +565,10 @@ export default function Header() {
       document.removeEventListener("click", handleOutsideClick);
     };
   }, [activeDesktopDropdownId, isMobileView]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <Fragment>
