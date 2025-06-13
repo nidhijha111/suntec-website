@@ -34,13 +34,13 @@
           width: 150px;
           height: 45px;
           font-family: $font-regular;
-          &.primary {
+          &.active {
             background: $color-brand-yellow;
             border: none;
             color: $color-brand-blue;
           }
 
-          &.secondary {
+          &.not-active {
             background: $color-pure-white;
             border: 1px solid $color-brand-blue;
             color: $color-brand-blue;

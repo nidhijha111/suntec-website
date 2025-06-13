@@ -23,13 +23,17 @@ export default function ProductHeroSection() {
 
           <div className="button-group">
             <button
-              className="btn primary"
+              className={`btn primary ${
+                insurencetype === "buy" ? "active" : "not-active"
+              }`}
               onClick={() => setInsurenceType("buy")}
             >
               Buy
             </button>
             <button
-              className="btn secondary"
+              className={`btn primary ${
+                insurencetype === "renew" ? "active" : "not-active"
+              }`}
               onClick={() => setInsurenceType("renew")}
             >
               Renew
