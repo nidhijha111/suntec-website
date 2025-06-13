@@ -178,6 +178,7 @@
 
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
+    padding: 20px;
     .form-wrapper-section,
     .help-line-info-section {
       padding: 40px 10px;
@@ -192,9 +193,6 @@
   @media (max-width: 469px) {
     .help-line-info-section {
       padding: 20px 5px;
-    }
-
-    .help-line-info-section {
       .info-card-wrapper {
         padding: 10px 5px;
         .info-heading-text {
