@@ -2,6 +2,7 @@ import React from "react";
 import CommonHeaderForm from "../components/commonHeaderForm";
 import "../styles/renew.scss";
 import BottomTopScrollSection from '../components/bottomTopScrollSection'
+import RenuwForm from "../components/renewForm";
 
 export default function Renew() {
   return (
@@ -45,7 +46,7 @@ export default function Renew() {
           </div>
         </div>
         <div className="right-panel ">
-          <CommonHeaderForm />
+          <RenuwForm />
         </div>
       </div>
       <BottomTopScrollSection />
