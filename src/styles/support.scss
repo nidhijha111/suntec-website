@@ -190,14 +190,13 @@
   }
 
   @media (max-width: 469px) {
-    .form-wrapper-section,
     .help-line-info-section {
       padding: 20px 5px;
     }
 
     .help-line-info-section {
       .info-card-wrapper {
-        padding: 5px;
+        padding: 10px 5px;
         .info-heading-text {
           font-size: 20px;
         }
