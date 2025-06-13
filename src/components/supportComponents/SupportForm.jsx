@@ -3,6 +3,7 @@ import "../../styles/support.scss";
 
 export default function SupportForm() {
   const [selectQueryValue, setSelectQueryValue] = useState();
+  const [prodctType, setProductType] = useState("");
   return (
     <form className="form-wrapper-section">
       <div className="form-wrapper">
@@ -21,7 +22,9 @@ export default function SupportForm() {
         <label> Subject*</label>
         <select
           placeholder="Select query"
-          onChange={(e) => setSelectQueryValue(e.target.value)}
+          onChange={(e) => {setSelectQueryValue(e.target.value);
+            setProductType('');
+          }}
         >
           <option value={""}>Select query</option>
           <option value={"Product query"}> Product query</option>
@@ -33,7 +36,12 @@ export default function SupportForm() {
       </div>
       <div className="form-wrapper">
         <label> Product</label>
-        <select placeholder="Select Product type" disabled={selectQueryValue !== 'Product query'}>
+        <select
+          placeholder="Select Product type"
+          value={prodctType}
+          disabled={selectQueryValue !== "Product query"}
+          onChange={(e) => setProductType(e.target.value)}
+        >
           <option>Select Product type</option>
           <option>Road Insurance</option>
           <option> Marine Insurance</option>
