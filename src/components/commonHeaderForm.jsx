@@ -10,7 +10,7 @@ export default function CommonHeaderForm({ headerText }) {
           Commercial <br /> Vehicle
         </>
       ),
-      icon: "/assets/images/commerical_vical_icon.svg", 
+      icon: "/assets/images/commerical_vical_icon.svg",
     },
     {
       id: "car",
@@ -99,6 +99,7 @@ export default function CommonHeaderForm({ headerText }) {
                 <option>Marine Insurance</option>
                 <option>Aviation Insurance</option>
                 <option>Home Insurance</option>
+                <option> Business Insurance</option>
                 <option>Travel Insurance</option>
                 <option>Health Insurance</option>
                 <option>Personal Accident Insurance</option>
